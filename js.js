@@ -18,7 +18,7 @@ const products = [
   {
     id: 2,
     name: "Sondeur",
-    image: "img/plombs/sondeur.jpg",
+    image: "img/plombs/Sondeur.jpg",
     options: {
       poids: [100],
       couleur: ["Vert Camo","Sable Foncé", "Sable Claire","Sable Vert","Noir","Noir Bleuter","Pierre","Vert Herbie","Marron"],
@@ -345,27 +345,6 @@ const products = [
   },
   {
     id: 21,
-    name: "Goutte D eau",
-    image: "img/plombs/Goutte d eau.jpg",
-    options: {
-      poids: [20, 30, 40, 50, 60, 80, 110, 140],
-      couleur: ["Vert Camo","Sable Foncé", "Sable Claire","Sable Vert","Noir","Noir Bleuter","Pierre","Vert Herbie","Marron"],
-      aspect: ["Lisse", "Granuleux"]
-    },
-    prixParPoids: {
-      20: 1.00,
-      30: 1.00,
-      40: 1.00,
-      50: 1.00,
-      60: 1.00,
-      80: 1.00,
-      110: 1.00,
-      140: 1.20,
-
-    }
-  },
-  {
-    id: 22,
     name: "Devrilleur",
     image: "img/plombs/Devrilleur.jpg",
     options: {
@@ -381,9 +360,26 @@ const products = [
     }
   },
   {
-    id: 23,
+    id: 22,
     name: "Trilobe",
     image: "img/plombs/Trilobe.jpg",
+    options: {
+      poids: [80, 100, 120, 140],
+      couleur: ["Vert Camo","Sable Foncé", "Sable Claire","Sable Vert","Noir","Noir Bleuter","Pierre","Vert Herbie","Marron"],
+      aspect: ["Lisse", "Granuleux"]
+    },
+    prixParPoids: {
+      80: 1.00,
+      100: 1.00,
+      120: 1.00,
+      140: 1.20,
+
+    }
+  },
+  {
+    id: 23,
+    name: "Goutte d eau",
+    image: "img/plombs/Goutte d eau.jpg",
     options: {
       poids: [80, 100, 120, 140],
       couleur: ["Vert Camo","Sable Foncé", "Sable Claire","Sable Vert","Noir","Noir Bleuter","Pierre","Vert Herbie","Marron"],

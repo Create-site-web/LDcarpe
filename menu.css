@@ -1,29 +1,98 @@
+/* === STYLE DE BASE (à adapter si besoin) === */
 nav {
-      background-color: #0077aa;
-      padding: 15px 20px;
-    }
+  background-color: #0077aa;
+  padding: 10px 20px;
+}
 
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
 
-    nav li {
-      margin: 0 15px;
-    }
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-    nav a {
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-      font-size: 18px;
-      transition: color 0.3s;
-    }
+nav ul li a:hover {
+  text-decoration: underline;
+}
 
-    nav a:hover {
-      color: #ffc107;
-    }
+.img-ld img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+
+.trou {
+    background-color: #0077aa;
+  height: 10px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0 10px;
+  line-height: 1.6;
+}
+
+.down {
+  text-align: center;
+  font-weight: bold;
+}
+span {
+    color: red;
+    text-align: center;
+    font-weight: bold;
+}
+
+p {
+    text-align: center;
+    font-weight: bold;
+}
+
+h1 {
+    text-align: center;
+}
+
+footer {
+  background-color: #0077aa;
+  color: white;
+  text-align: center;
+  padding: 15px 10px;
+  margin-top: 40px;
+}
+
+/* === RESPONSIVE DESIGN === */
+@media screen and (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  nav {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  p, .down {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .img-ld {
+    margin: 20px 0;
+  }
+}
