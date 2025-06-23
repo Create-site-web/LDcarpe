@@ -18,7 +18,7 @@ const products = [
   {
     id: 2,
     name: "Sondeur",
-    image: "img/plombs/Sondeur.jpg",
+    image: "img/plombs/sondeur.jpg",
     options: {
       poids: [100],
       couleur: ["Vert Camo","Sable Foncé", "Sable Claire","Sable Vert","Noir","Noir Bleuter","Pierre","Vert Herbie","Marron"],
