@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="img/ico/icon.jpg" type="image/x-icon">
+  <title>Plombs de Pêche</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+
+    <nav>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="boutique.html">Boutique</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1 class="title">Plombs de Pêche à la carpe</h1>
+    <div id="cart-icon">🛒 (<span id="cart-count">0</span>)</div>
+  </header>
+
+  <div class="paragraphe">
+    <p>Tout plombs dépassant 140g se verra dans l'obligation d'avoir un prix supérieur de quelques centimes, <span class="span-para">Merci de votre compréhension</span></p>
+    <span class="tarif">1 euro pièces de 40g jusque 130g tout les 10 plombs acheter un supplémentaire offret</span>
+  </div>
+
+  <!-- Liste des produits -->
+  <main id="product-list">
+    <!-- Les produits seront insérés ici via JavaScript -->
+  </main>
+
+
+  <!-- Panier à droite -->
+  <aside id="cart">
+    <h2>Votre panier</h2>
+    <ul id="cart-items"></ul>
+    <button onclick="sendOrder()">Commander par email</button>
+  </aside>
+
+  <footer>
+    <p>&copy; 2025 LDcarpe. Tous droits réservés.</p>
+  </footer>
+
+  <script src="js.js"></script>
+</body>
+</html>
