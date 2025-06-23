@@ -18,7 +18,7 @@ const products = [
   {
     id: 2,
     name: "Sondeur",
-    image: "img/plombs/sondeur.jpg",
+    image: "img/plombs/Sondeur.jpg",
     options: {
       poids: [100],
       couleur: ["Vert Camo","Sable Foncé", "Sable Claire","Sable Vert","Noir","Noir Bleuter","Pierre","Vert Herbie","Marron"],
@@ -503,7 +503,7 @@ function sendOrder() {
     `${item.name} - ${item.poids}g - ${item.couleur} - ${item.aspect} - ${item.price.toFixed(2)}€`
   ).join('\n');
 
-  const mailtoLink = `mailto:tonemail@example.com?subject=Commande Plombs&body=${encodeURIComponent(details)}`;
+  const mailtoLink = `mailto:ldcarpepro@gmail.com?subject=Commande Plombs&body=${encodeURIComponent(details)}`;
   window.location.href = mailtoLink;
 }
 
