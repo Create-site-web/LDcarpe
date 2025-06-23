@@ -345,8 +345,8 @@ const products = [
   },
   {
     id: 21,
-    name: "Goutte D'eau",
-    image: "img/plombs/Goutte d'eau.jpg",
+    name: "Goutte D eau",
+    image: "img/plombs/Goutte d eau.jpg",
     options: {
       poids: [20, 30, 40, 50, 60, 80, 110, 140],
       couleur: ["Vert Camo","Sable Foncé", "Sable Claire","Sable Vert","Noir","Noir Bleuter","Pierre","Vert Herbie","Marron"],
