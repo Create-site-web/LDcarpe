@@ -70,6 +70,15 @@ footer {
   margin-top: 40px;
 }
 
+.explication {
+    font-weight: bold;
+}
+
+.merci {
+    font-weight: bold;
+    color: red;
+}
+
 /* === RESPONSIVE DESIGN === */
 @media screen and (max-width: 768px) {
   nav ul {

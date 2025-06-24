@@ -398,7 +398,7 @@ const products = [
 
 let cart = [];
 
-// Affichage des produits dans la page
+// Affiche les produits
 function displayProducts() {
   const list = document.getElementById("product-list");
   list.innerHTML = '';
@@ -407,7 +407,6 @@ function displayProducts() {
     const div = document.createElement("div");
     div.className = "product";
 
-    // Attribut personnalisé contenant les prix
     div.setAttribute('data-prix-par-poids', JSON.stringify(product.prixParPoids));
 
     const defaultWeight = product.options.poids[0];
@@ -418,12 +417,15 @@ function displayProducts() {
         <select class="poids" onchange="updatePrice(this)">
           ${product.options.poids.map(p => `<option value="${p}">${p}g</option>`).join('')}
         </select>
-      </label>
+      </label><br>
+      <label>Nombre:
+        <input type="number" class="nombre" min="1" value="1" onchange="updatePrice(this)">
+      </label><br>
       <label>Couleur:
         <select class="couleur">
           ${product.options.couleur.map(c => `<option value="${c}">${c}</option>`).join('')}
         </select>
-      </label>
+      </label><br>
       <label>Aspect:
         <select class="aspect">
           ${product.options.aspect.map(a => `<option value="${a}">${a}</option>`).join('')}
@@ -436,34 +438,46 @@ function displayProducts() {
       <h3>${product.name}</h3>
       ${optionsHtml}
       <p>Prix: <span class="price">${initialPrice.toFixed(2)}</span> €</p>
-      <button onclick='addToCart(this, ${JSON.stringify(product)})'>Ajouter</button>
+      <button onclick='addToCart(this, ${JSON.stringify(product).replace(/'/g, "\\'")})'>Ajouter</button>
     `;
 
     list.appendChild(div);
   });
 }
 
-// Met à jour le prix selon le poids sélectionné
-function updatePrice(selectElement) {
-  const poids = parseInt(selectElement.value);
-  const productDiv = selectElement.closest('.product');
+// Met à jour le prix en fonction du poids et du nombre
+function updatePrice(element) {
+  const productDiv = element.closest('.product');
+  const poids = parseInt(productDiv.querySelector('.poids').value);
+  const nombre = parseInt(productDiv.querySelector('.nombre').value) || 1;
   const prixParPoids = JSON.parse(productDiv.getAttribute('data-prix-par-poids'));
-  const newPrice = prixParPoids[poids] || 0;
+  const newPrice = (prixParPoids[poids] || 0) * nombre;
   productDiv.querySelector('.price').textContent = newPrice.toFixed(2);
 }
 
-// Ajoute un produit au panier
+// Ajoute un article au panier
 function addToCart(button, product) {
   const productDiv = button.closest('.product');
 
   const poids = parseInt(productDiv.querySelector('.poids').value);
+  const nombre = parseInt(productDiv.querySelector('.nombre').value) || 1;
   const couleur = productDiv.querySelector('.couleur').value;
   const aspect = productDiv.querySelector('.aspect').value;
 
   const prixParPoids = JSON.parse(productDiv.getAttribute('data-prix-par-poids'));
-  const price = prixParPoids[poids] || 0;
+  const prixUnitaire = prixParPoids[poids] || 0;
+  const prixTotal = prixUnitaire * nombre;
 
-  cart.push({ ...product, poids, couleur, aspect, price });
+  cart.push({ 
+    name: product.name,
+    poids,
+    nombre,
+    couleur,
+    aspect,
+    prixUnitaire,
+    prixTotal
+  });
+
   updateCart();
 }
 
@@ -476,8 +490,8 @@ function updateCart() {
   cart.forEach((item, i) => {
     const li = document.createElement("li");
     li.innerHTML = `
-      ${item.name} - ${item.poids}g - ${item.couleur} - ${item.aspect} 
-      <strong>${item.price.toFixed(2)} €</strong>
+      ${item.nombre}x ${item.name} - ${item.poids}g - ${item.couleur} - ${item.aspect}
+      <strong>${item.prixTotal.toFixed(2)} €</strong>
       <button onclick="removeFromCart(${i})">❌</button>
     `;
     list.appendChild(li);
@@ -486,7 +500,7 @@ function updateCart() {
   count.textContent = cart.length;
 }
 
-// Supprime un article du panier
+// Supprime un article
 function removeFromCart(index) {
   cart.splice(index, 1);
   updateCart();
@@ -499,13 +513,16 @@ function sendOrder() {
     return;
   }
 
-  const details = cart.map(item =>
-    `${item.name} - ${item.poids}g - ${item.couleur} - ${item.aspect} - ${item.price.toFixed(2)}€`
-  ).join('\n');
+  let total = 0;
+  const details = cart.map(item => {
+    total += item.prixTotal;
+    return `${item.nombre}x ${item.name} - ${item.poids}g - ${item.couleur} - ${item.aspect} - ${item.prixTotal.toFixed(2)}€`;
+  }).join('%0D%0A');
 
-  const mailtoLink = `mailto:ldcarpepro@gmail.com?subject=Commande Plombs&body=${encodeURIComponent(details)}`;
+  const body = `${details}%0D%0A%0D%0ATotal: ${total.toFixed(2)}€`;
+
+  const mailtoLink = `mailto:ldcarpepro@gmail.com?subject=Commande Plombs&body=${body}`;
   window.location.href = mailtoLink;
 }
 
-// Initialisation au chargement
 window.onload = displayProducts;
