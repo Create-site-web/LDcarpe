@@ -6,7 +6,6 @@ const products = [
     image: "img/plombs/Branche.jpg",
     options: {
       poids: [85, 115],
-      nombre: [],
       couleur: ["Vert Camo","Sable Foncé", "Sable Claire","Sable Vert","Noir","Noir Bleuter","Pierre","Vert Herbie","Marron"],
       aspect: ["Lisse", "Granuleux"]
     },
