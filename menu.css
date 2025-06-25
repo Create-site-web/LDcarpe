@@ -1,4 +1,4 @@
-/* === STYLE DE BASE (à adapter si besoin) === */
+/* === STYLE DE BASE === */
 nav {
   background-color: #0077aa;
   padding: 10px 20px;
@@ -32,7 +32,7 @@ nav ul li a:hover {
 }
 
 .trou {
-    background-color: #0077aa;
+  background-color: #0077aa;
   height: 10px;
 }
 
@@ -47,19 +47,20 @@ body {
   text-align: center;
   font-weight: bold;
 }
+
 span {
-    color: red;
-    text-align: center;
-    font-weight: bold;
+  color: red;
+  text-align: center;
+  font-weight: bold;
 }
 
 p {
-    text-align: center;
-    font-weight: bold;
+  text-align: center;
+  font-weight: bold;
 }
 
 h1 {
-    text-align: center;
+  text-align: center;
 }
 
 footer {
@@ -71,57 +72,68 @@ footer {
 }
 
 .explication {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .merci {
-    font-weight: bold;
-    color: red;
+  font-weight: bold;
+  color: red;
 }
 
 .faq-section {
   background-color: #0077aa;
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-  }
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: white;
+  border-radius: 8px;
+}
 
-  .faq-section h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
+.faq-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-  .faq-item {
-    border-bottom: 1px solid #ccc;
-    padding: 10px 0;
-  }
+.faq-item {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
 
-  .faq-question {
-    cursor: pointer;
-    font-weight: bold;
-    position: relative;
-    padding-right: 20px;
-  }
+.faq-question {
+  cursor: pointer;
+  font-weight: bold;
+  position: relative;
+  padding-right: 20px;
+}
 
-  .faq-question::after {
-    content: "+";
-    position: absolute;
-    right: 0;
-    font-size: 20px;
-  }
+.faq-question::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  font-size: 20px;
+}
 
-  .faq-question.active::after {
-    content: "-";
-  }
+.faq-question.active::after {
+  content: "-";
+}
 
-  .faq-answer {
-    display: none;
-    margin-top: 10px;
-    color: #333;
-  }
-
+.faq-answer {
+  display: none;
+  margin-top: 10px;
+  color: #fff;
+}
 /* === RESPONSIVE DESIGN === */
+
+/* Tablettes */
+@media screen and (max-width: 1024px) {
+  .faq-section {
+    margin: 30px 15px;
+    padding: 15px;
+  }
+}
+
+/* Mobiles (≤768px) */
 @media screen and (max-width: 768px) {
   nav ul {
     flex-direction: column;
@@ -145,5 +157,54 @@ footer {
 
   .img-ld {
     margin: 20px 0;
+  }
+
+  .faq-section {
+    padding: 15px;
+  }
+
+  .faq-question {
+    font-size: 16px;
+  }
+
+  .faq-answer {
+    font-size: 15px;
+  }
+}
+
+/* Très petits mobiles (≤480px) */
+@media screen and (max-width: 480px) {
+  nav {
+    padding: 10px;
+  }
+
+  nav ul {
+    gap: 8px;
+  }
+
+  nav ul li a {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  p, .down {
+    font-size: 14px;
+  }
+
+  .faq-section {
+    margin: 20px 10px;
+    padding: 10px;
+  }
+
+  .faq-question::after {
+    font-size: 18px;
+  }
+
+  footer {
+    font-size: 14px;
+    padding: 10px;
   }
 }
