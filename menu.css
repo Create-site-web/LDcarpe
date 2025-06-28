@@ -123,6 +123,10 @@ footer {
   margin-top: 10px;
   color: #fff;
 }
+
+.frais {
+  color: rgb(0, 156, 0);
+}
 /* === RESPONSIVE DESIGN === */
 
 /* Tablettes */

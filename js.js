@@ -520,9 +520,12 @@ function sendOrder() {
     return `${item.nombre}x ${item.name} - ${item.poids}g - ${item.couleur} - ${item.aspect} - ${item.prixTotal.toFixed(2)}€`;
   }).join('%0D%0A');
 
-  const body = `Bonjour,%0D%0A%0D%0AVoici ma commande :%0D%0A%0D%0A${details}%0D%0A%0D%0ATotal : ${total.toFixed(2)}€%0D%0A%0D%0AMerci !`;
+  total +=1;
 
-  const mailtoLink = `mailto:ldcarpepro@gmail.com?subject=Commande Plombs LDcarpe&body=${body}`;
+  const body = `Bonjour,%0D%0A%0D%0AVoici ma commande :%0D%0A%0D%0A${details}%0D%0A%0D%0ATotal : ${total.toFixed(2)}€%0D%0A%0D%0AMerci !`;
+  const text = '%0D%0A+ 1€ de frais est automatiquement ajouté par commande pour couvrir les frais d’emballage (carton, scotch, papier, facture, etc.).';
+  
+  const mailtoLink = `mailto:ldcarpepro@gmail.com?subject=Commande Plombs LDcarpe&body=${body}${text}`;
   window.location.href = mailtoLink;
 }
 
