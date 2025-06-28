@@ -1,4 +1,7 @@
-// Tableau des produits avec prix définis par poids
+let cart = [];
+
+// Exemple de liste de produits
+// ⚠️ Remplace ça par tes vrais produits :
 const products = [
   {
     id: 1,
@@ -396,8 +399,6 @@ const products = [
 
 ];
 
-let cart = [];
-
 // Affiche les produits
 function displayProducts() {
   const list = document.getElementById("product-list");
@@ -519,9 +520,9 @@ function sendOrder() {
     return `${item.nombre}x ${item.name} - ${item.poids}g - ${item.couleur} - ${item.aspect} - ${item.prixTotal.toFixed(2)}€`;
   }).join('%0D%0A');
 
-  const body = `${details}%0D%0A%0D%0ATotal: ${total.toFixed(2)}€`;
+  const body = `Bonjour,%0D%0A%0D%0AVoici ma commande :%0D%0A%0D%0A${details}%0D%0A%0D%0ATotal : ${total.toFixed(2)}€%0D%0A%0D%0AMerci !`;
 
-  const mailtoLink = `mailto:ldcarpepro@gmail.com?subject=Commande Plombs&body=${body}`;
+  const mailtoLink = `mailto:ldcarpepro@gmail.com?subject=Commande Plombs LDcarpe&body=${body}`;
   window.location.href = mailtoLink;
 }
 
