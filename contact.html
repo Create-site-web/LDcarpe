@@ -6,6 +6,7 @@
   <link rel="shortcut icon" href="ico/icon.jpg" type="image/x-icon">
   <title>LDcarpe - Contact</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="contact.css">
 </head>
 <body>
     <nav>
@@ -13,10 +14,34 @@
             <li><a href="index.html">Accueil</a></li>
             <li><a href="boutique.html">Boutique</a></li>
             <li><a href="contact.html">Contact</a></li>
+            <li><a href="FAQ.html">FAQ</a></li>
         </ul>
     </nav>
     <header>
         <h1>Formulaire de contact</h1>
     </header>
+
+    <section id="contact">
+  <h2>Contactez-nous</h2>
+  <form id="contact-form">
+
+    <p>Aucune adresse email n'est demandée car vous serez automatiquement redirigé vers votre boite mail.</p>
+    <p>L'objet du mail est automatiquement enregistré par " Renseignement ", Afin de faciliter l'utilisation du formulaire de contact</p>
+    <p>Ou au : <span class="number">06.59.09.09.06</span> pour plus de rapidité de contact</p>
+    <p class="formu">Merci de votre compréhension</p>
+
+    <label>Message :</label>
+    <textarea id="message" rows="5" required></textarea>
+
+    <button type="submit">Envoyer</button>
+    <p id="form-message"></p>
+  </form>
+</section>
+
+    <footer>
+    <p>&copy; 2025 LDcarpe. Tous droits réservés.</p>
+  </footer>
+
+  <script src="contact.js"></script>
 </body>
 </html>

@@ -1,3 +1,4 @@
+// --- VARIABLES ---
 const productsContainer = document.getElementById("products");
 const adminPanel = document.getElementById("adminPanel");
 const form = document.getElementById("productForm");
@@ -25,9 +26,29 @@ const getValues = id => {
            .filter(Boolean);
 }
 
+// --- CALCUL DU PRIX SELON POIDS ---
+function getPriceByWeight(weightStr, basePrice) {
+  if(!weightStr) return basePrice;
+  let grams = parseInt(weightStr.replace(/[^\d]/g, ""));
+  if(isNaN(grams)) return basePrice;
+
+  if(grams >= 0 && grams <= 120) return 1.00;
+  else if(grams >= 140 && grams <= 140) return 1.20;
+  else if(grams >= 145 && grams <= 145) return 1.30;
+  else if(grams >= 150 && grams <= 150) return 1.40;
+  else if(grams >= 170 && grams <= 170) return 1.50;
+  else if(grams >= 180 && grams <= 180) return 1.60;
+  else if(grams >= 210 && grams <= 210) return 1.80;
+  else if(grams >= 230 && grams <= 230) return 1.90;
+  else if(grams >= 300 && grams <= 300) return 2.50;
+  else if(grams >= 350 && grams <= 350) return 2.70;
+  else return basePrice;
+}
+
 // --- RENDU DES PRODUITS ---
 function renderProducts() {
   productsContainer.innerHTML = "";
+
   products.forEach((p, index) => {
     const card = document.createElement("div");
     card.className = "product-card";
@@ -41,28 +62,38 @@ function renderProducts() {
     const desc = document.createElement("p");
     desc.textContent = p.description;
 
-    const price = document.createElement("p");
-    price.textContent = `Prix : ${p.price.toFixed(2).replace(".", ",")} €`;
+    const priceEl = document.createElement("p");
+    priceEl.textContent = `Prix : ${p.price.toFixed(2).replace(".", ",")} €`;
 
     const selects = [];
+
     if (p.colors.length) {
       const sel = document.createElement("select");
       p.colors.forEach(c => { const opt = document.createElement("option"); opt.textContent = c; sel.appendChild(opt); });
       selects.push({ type: "Couleur", sel });
       card.appendChild(sel);
     }
+
     if (p.weights.length) {
       const sel = document.createElement("select");
       p.weights.forEach(w => { const opt = document.createElement("option"); opt.textContent = w; sel.appendChild(opt); });
       selects.push({ type: "Poids", sel });
       card.appendChild(sel);
+
+      // Mettre à jour le prix à la sélection
+      sel.addEventListener("change", () => {
+        let finalPrice = getPriceByWeight(sel.value, parseFloat(p.price));
+        priceEl.textContent = `Prix : ${finalPrice.toFixed(2).replace(".", ",")} €`;
+      });
     }
+
     if (p.quantities.length) {
       const sel = document.createElement("select");
       p.quantities.forEach(q => { const opt = document.createElement("option"); opt.textContent = q; sel.appendChild(opt); });
       selects.push({ type: "Nombre", sel });
       card.appendChild(sel);
     }
+
     if (p.aspects.length) {
       const sel = document.createElement("select");
       p.aspects.forEach(a => { const opt = document.createElement("option"); opt.textContent = a; sel.appendChild(opt); });
@@ -73,8 +104,11 @@ function renderProducts() {
     const btn = document.createElement("button");
     btn.textContent = "Ajouter au panier";
     btn.addEventListener("click", () => {
+      let selectedWeight = selects.find(s => s.type === "Poids")?.sel.value || "";
+      let finalPrice = getPriceByWeight(selectedWeight, parseFloat(p.price));
+
       const chosen = selects.map(s => `${s.type}: ${s.sel.value}`).join(", ");
-      addToCart({ name: p.name, price: parseFloat(p.price), options: chosen });
+      addToCart({ name: p.name, price: finalPrice, options: chosen });
     });
     card.appendChild(btn);
 
@@ -95,7 +129,7 @@ function renderProducts() {
     card.appendChild(img);
     card.appendChild(title);
     card.appendChild(desc);
-    card.appendChild(price);
+    card.appendChild(priceEl);
 
     productsContainer.appendChild(card);
   });
@@ -105,8 +139,9 @@ function renderProducts() {
 form.addEventListener("submit", e => {
   e.preventDefault();
 
-  let priceInput = document.getElementById("price").value.replace(",", ".");
-  if (isNaN(priceInput) || priceInput === "") { alert("Veuillez entrer un prix valide !"); return; }
+  let priceInput = document.getElementById("price").value.trim().replace(",", ".");
+  let price = parseFloat(priceInput);
+  if(isNaN(price)) { alert("Veuillez entrer un prix valide !"); return; }
 
   const file = document.getElementById("image").files[0];
   if (!file) { alert("Veuillez choisir une image !"); return; }
@@ -116,7 +151,7 @@ form.addEventListener("submit", e => {
     const product = {
       name: document.getElementById("name").value.trim(),
       description: document.getElementById("description").value.trim(),
-      price: parseFloat(priceInput),
+      price: price,
       image: evt.target.result,
       colors: getValues("colors"),
       weights: getValues("weights"),
@@ -181,7 +216,9 @@ function updateCart() {
   cartTotal.textContent = cart.length > 0 ? `Total (avec 1€ frais) : ${total.toFixed(2).replace(".", ",")} €` : "Votre panier est vide";
   cartCount.textContent = cart.length;
 }
+
 cartIcon.addEventListener("click", () => cartPanel.classList.toggle("hidden"));
+
 orderEmailBtn.addEventListener("click", () => {
   if (cart.length === 0) { alert("Votre panier est vide !"); return; }
   let body = cart.map(item => `${item.name} (${item.options}) - ${item.price.toFixed(2).replace(".", ",")} €`).join("%0D%0A");

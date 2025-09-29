@@ -1,0 +1,245 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0 10px;
+  line-height: 1.6;
+}
+
+nav {
+  background-color: #333;
+  padding: 10px 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 15px 10px;
+  margin-top: 40px;
+}
+
+#contact {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 2px solid #333;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+#contact h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#contact-form label {
+  font-weight: bold;
+  color: #333;
+}
+
+#contact-form input[type="email"],
+#contact-form textarea {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  resize: vertical;
+  font-family: inherit;
+}
+
+#contact-form textarea {
+  min-height: 80px;
+}
+
+#contact-form button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+#contact-form button:hover {
+  background-color: #333;
+}
+
+p {
+  font-weight: bold;
+}
+
+.formu {
+  text-align: center;
+  color: rgb(255, 0, 0);
+  font-weight: bold;
+}
+
+.number {
+  color: #333;
+}
+
+.faq-section {
+  background-color: #0077aa;
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: white;
+  border-radius: 8px;
+}
+
+.faq-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.faq-item {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.faq-question {
+  cursor: pointer;
+  font-weight: bold;
+  position: relative;
+  padding-right: 20px;
+}
+
+.faq-question::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  font-size: 20px;
+}
+
+.faq-question.active::after {
+  content: "-";
+}
+
+.faq-answer {
+  display: none;
+  margin-top: 10px;
+  color: #fff;
+}
+
+/* === RESPONSIVE DESIGN === */
+
+/* Tablettes */
+@media (max-width: 1024px) {
+  #contact {
+    margin: 30px 20px;
+  }
+
+  .faq-section {
+    margin: 30px 20px;
+    padding: 15px;
+  }
+}
+
+/* Mobiles moyens */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #contact {
+    margin: 20px 15px;
+    padding: 15px;
+  }
+
+  #contact h2 {
+    font-size: 20px;
+  }
+
+  #contact-form button {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .faq-section {
+    padding: 15px;
+  }
+
+  .faq-question {
+    font-size: 16px;
+  }
+
+  .faq-answer {
+    font-size: 15px;
+  }
+
+  footer {
+    font-size: 14px;
+  }
+}
+
+/* Très petits mobiles */
+@media (max-width: 480px) {
+  nav {
+    padding: 10px;
+  }
+
+  nav ul {
+    gap: 8px;
+  }
+
+  nav ul li a {
+    font-size: 14px;
+  }
+
+  #contact {
+    margin: 15px 10px;
+    padding: 10px;
+  }
+
+  #contact-form input[type="email"],
+  #contact-form textarea {
+    font-size: 0.95rem;
+  }
+
+  #contact-form button {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+
+  .faq-section {
+    margin: 20px 10px;
+    padding: 10px;
+  }
+
+  .faq-question::after {
+    font-size: 18px;
+  }
+}
