@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="ico/icon.jpg" type="image/x-icon">
+  <title>LDcarp - Boutique</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="boutique.html">Boutique</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <header>
+    <h1>Boutique</h1>
+    <div id="cartIcon">🛒 (<span id="cartCount">0</span>)</div>
+  </header>
+
+  <main>
+    <section id="products" class="products-grid">
+      <!-- Les produits apparaissent ici -->
+    </section>
+  </main>
+
+  <!-- PANIER -->
+  <aside id="cartPanel" class="hidden">
+    <h2>Votre panier</h2>
+    <ul id="cartItems"></ul>
+    <p id="cartTotal"></p>
+    <button id="orderEmail">Commander par email</button>
+  </aside>
+
+  <!-- ADMIN PANEL -->
+  <div id="adminPanel" class="hidden">
+    <h2>Administration</h2>
+    <form id="productForm">
+      <input type="text" id="name" placeholder="Nom du produit" required>
+      <textarea id="description" placeholder="Description"></textarea>
+      <input type="number" id="price" placeholder="Prix (€)" required>
+      <input type="file" id="image" accept="image/*" required>
+
+      <label>Couleurs (séparées par des virgules)</label>
+      <input type="text" id="colors" placeholder="ex: rouge,bleu,vert">
+
+      <label>Poids (séparés par des virgules)</label>
+      <input type="text" id="weights" placeholder="ex: 250g,500g,1kg">
+
+      <label>Nombres (séparés par des virgules)</label>
+      <input type="text" id="quantities" placeholder="ex: 1,2,3,4">
+
+      <label>Aspects (séparés par des virgules)</label>
+      <input type="text" id="aspects" placeholder="ex: mat,brillant">
+
+      <button type="submit">Ajouter le produit</button>
+    </form>
+    <button id="clearProducts" class="danger">Vider la boutique</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
