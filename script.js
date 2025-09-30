@@ -16,7 +16,7 @@ let products = [
     description: "Accrochage par clip plomb",
     price: 1.00,
     image: "boutique plombs/sondeur.jpg",
-    colors: ["Vert cammo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
     weights: ["100"],
     quantities: ["1", "2", "3", "4", "5", "10"],
     aspects: ["Lisse", "Granuleux"]
@@ -26,7 +26,7 @@ let products = [
     description: "Accrochage par clip plomb",
     price: 1.00,
     image: "boutique plombs/Branche.jpg",
-    colors: ["Vert cammo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
     weights: ["85","115"],
     quantities: ["1", "2", "3", "4", "5", "10"],
     aspects: ["Lisse", "Granuleux"]
@@ -36,7 +36,7 @@ let products = [
     description: "Accrochage par clip plomb",
     price: 1.00,
     image: "boutique plombs/Moule.jpg",
-    colors: ["Vert cammo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
     weights: ["70","90"],
     quantities: ["1", "2", "3", "4", "5", "10"],
     aspects: ["Lisse", "Ganuleux"]
@@ -46,7 +46,7 @@ let products = [
     description: "Accrochage par clip plomb",
     price: 1.00,
     image: "boutique plombs/Triface.jpg",
-    colors: ["Vert cammo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
     weights: ["80","90","100","110"],
     quantities: ["1", "2", "3", "4", "5", "10"],
     aspects: ["Lisse", "Ganuleux"]
@@ -56,7 +56,7 @@ let products = [
     description: "Accrochage par clip plomb",
     price: 1.00,
     image: "boutique plombs/Distance.jpg",
-    colors: ["Vert cammo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
     weights: ["40","50","60","70","80","90","100","110","120","130"],
     quantities: ["1", "2", "3", "4", "5", "10"],
     aspects: ["Lisse", "Ganuleux"]
@@ -66,7 +66,7 @@ let products = [
     description: "Accrochage par clip plomb",
     price: 1.00,
     image: "boutique plombs/Plomb PLat.jpg",
-    colors: ["Vert cammo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
     weights: ["70","90","120","140","200"],
     quantities: ["1", "2", "3", "4", "5", "10"],
     aspects: ["Lisse", "Ganuleux"]
@@ -76,7 +76,7 @@ let products = [
     description: "Accrochage par clip plomb",
     price: 1.00,
     image: "boutique plombs/Grip aillettes.jpg",
-    colors: ["Vert cammo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
     weights: ["55","75","90","110"],
     quantities: ["1", "2", "3", "4", "5", "10"],
     aspects: ["Lisse", "Ganuleux"]
@@ -86,7 +86,7 @@ let products = [
     description: "Accrochage par clip plomb",
     price: 1.00,
     image: "boutique plombs/Grippe troué.jpg",
-    colors: ["Vert cammo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
     weights: ["40","50","60","90","100","110","120","130","150","170","210","230"],
     quantities: ["1", "2", "3", "4", "5", "10"],
     aspects: ["Lisse", "Ganuleux"]
@@ -300,3 +300,4 @@ orderEmailBtn.addEventListener("click", () => {
 
 // --- INIT ---
 renderProducts();
+
