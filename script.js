@@ -16,7 +16,7 @@ let products = [
     description: "Accrochage par clip plomb",
     price: 1.00,
     image: "boutique plombs/sondeur.jpg",
-    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["100"],
     quantities: ["1", "2", "3", "4", "5", "10"],
     aspects: ["Lisse", "Granuleux"]
@@ -26,7 +26,7 @@ let products = [
     description: "Accrochage par clip plomb",
     price: 1.00,
     image: "boutique plombs/Branche.jpg",
-    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["85","115"],
     quantities: ["1", "2", "3", "4", "5", "10"],
     aspects: ["Lisse", "Granuleux"]
@@ -36,7 +36,7 @@ let products = [
     description: "Accrochage par clip plomb",
     price: 1.00,
     image: "boutique plombs/Moule.jpg",
-    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["70","90"],
     quantities: ["1", "2", "3", "4", "5", "10"],
     aspects: ["Lisse", "Ganuleux"]
@@ -46,7 +46,7 @@ let products = [
     description: "Accrochage par clip plomb",
     price: 1.00,
     image: "boutique plombs/Triface.jpg",
-    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["80","90","100","110"],
     quantities: ["1", "2", "3", "4", "5", "10"],
     aspects: ["Lisse", "Ganuleux"]
@@ -56,7 +56,7 @@ let products = [
     description: "Accrochage par clip plomb",
     price: 1.00,
     image: "boutique plombs/Distance.jpg",
-    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["40","50","60","70","80","90","100","110","120","130"],
     quantities: ["1", "2", "3", "4", "5", "10"],
     aspects: ["Lisse", "Ganuleux"]
@@ -66,7 +66,7 @@ let products = [
     description: "Accrochage par clip plomb",
     price: 1.00,
     image: "boutique plombs/Plomb PLat.jpg",
-    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["70","90","120","140","200"],
     quantities: ["1", "2", "3", "4", "5", "10"],
     aspects: ["Lisse", "Ganuleux"]
@@ -76,7 +76,7 @@ let products = [
     description: "Accrochage par clip plomb",
     price: 1.00,
     image: "boutique plombs/Grip aillettes.jpg",
-    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["55","75","90","110"],
     quantities: ["1", "2", "3", "4", "5", "10"],
     aspects: ["Lisse", "Ganuleux"]
@@ -86,11 +86,171 @@ let products = [
     description: "Accrochage par clip plomb",
     price: 1.00,
     image: "boutique plombs/Grippe troué.jpg",
-    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["40","50","60","90","100","110","120","130","150","170","210","230"],
     quantities: ["1", "2", "3", "4", "5", "10"],
     aspects: ["Lisse", "Ganuleux"]
-  }
+  },
+  {
+    name: "Losange",
+    description: "Accrochage par clip plomb",
+    price: 1.00,
+    image: "boutique plombs/Losange.jpg",
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
+    weights: ["20","40","60","80"],
+    quantities: ["1", "2", "3", "4", "5", "10"],
+    aspects: ["Lisse", "Ganuleux"]
+  },
+  {
+    name: "Boule",
+    description: "Accrochage par clip plomb",
+    price: 1.00,
+    image: "boutique plombs/Boule.jpg",
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
+    weights: ["40","60","80"],
+    quantities: ["1", "2", "3", "4", "5", "10"],
+    aspects: ["Lisse", "Ganuleux"]
+  },
+  {
+    name: "Grappa",
+    description: "Accrochage par clip plomb",
+    price: 1.00,
+    image: "boutique plombs/Grappa.jpg",
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
+    weights: ["70","80","90","110","300","350"],
+    quantities: ["1", "2", "3", "4", "5", "10"],
+    aspects: ["Lisse", "Ganuleux"]
+  },
+  {
+    name: "Backlead",
+    description: "Accrochage par clip plomb",
+    price: 1.00,
+    image: "boutique plombs/Backlead.jpg",
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
+    weights: ["70","50","70"],
+    quantities: ["1", "2", "3", "4", "5", "10"],
+    aspects: ["Lisse", "Ganuleux"]
+  },
+  {
+    name: "Cube",
+    description: "Accrochage par clip plomb",
+    price: 1.00,
+    image: "boutique plombs/Cube.jpg",
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
+    weights: ["60","70","80","90","100","120","140"],
+    quantities: ["1", "2", "3", "4", "5", "10"],
+    aspects: ["Lisse", "Ganuleux"]
+  },
+  {
+    name: "Squelette",
+    description: "Accrochage par clip plomb",
+    price: 1.00,
+    image: "boutique plombs/squelette.png",
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
+    weights: ["70","90"],
+    quantities: ["1", "2", "3", "4", "5", "10"],
+    aspects: ["Lisse", "Ganuleux"]
+  },
+  {
+    name: "Poire plat",
+    description: "Accrochage par clip plomb",
+    price: 1.00,
+    image: "boutique plombs/Poire plat.jpg",
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
+    weights: ["30","50","60","80"],
+    quantities: ["1", "2", "3", "4", "5", "10"],
+    aspects: ["Lisse", "Ganuleux"]
+  },
+  {
+    name: "Goutte d'eau",
+    description: "Accrochage par clip plomb",
+    price: 1.00,
+    image: "boutique plombs/Goutte d eau.jpg",
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
+    weights: ["20","30","40","50","60","80","110","140"],
+    quantities: ["1", "2", "3", "4", "5", "10"],
+    aspects: ["Lisse", "Ganuleux"]
+  },
+  {
+    name: "Devrilleur",
+    description: "Accrochage par clip plomb",
+    price: 1.00,
+    image: "boutique plombs/Devrilleur.jpg",
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
+    weights: ["80","108","120"],
+    quantities: ["1", "2", "3", "4", "5", "10"],
+    aspects: ["Lisse", "Ganuleux"]
+  },
+  {
+    name: "Trilobe",
+    description: "Accrochage par clip plomb",
+    price: 1.00,
+    image: "boutique plombs/Trilobe.jpg",
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
+    weights: ["80","100","120","140"],
+    quantities: ["1", "2", "3", "4", "5", "10"],
+    aspects: ["Lisse", "Ganuleux"]
+  },
+  {
+    name: "Bombe",
+    description: "Accrochage par clip plomb",
+    price: 1.00,
+    image: "boutique plombs/Bombe.jpg",
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
+    weights: ["120","150","180","200"],
+    quantities: ["1", "2", "3", "4", "5", "10"],
+    aspects: ["Lisse", "Ganuleux"]
+  },
+  {
+    name: "Poire plat inline",
+    description: "Montagne inline, Nylon par l'intérieur de la gaine du plomb",
+    price: 1.00,
+    image: "boutique plombs/Poire inline.jpg",
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
+    weights: ["60","80","90"],
+    quantities: ["1", "2", "3", "4", "5", "10"],
+    aspects: ["Lisse", "Ganuleux"]
+  },
+  {
+    name: "Grappa inline",
+    description: "Montagne inline, Nylon par l'intérieur de la gaine du plomb",
+    price: 1.00,
+    image: "boutique plombs/Grappa inline.jpg",
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
+    weights: ["65","85","95"],
+    quantities: ["1", "2", "3", "4", "5", "10"],
+    aspects: ["Lisse", "Ganuleux"]
+  },
+  {
+    name: "Triface inline",
+    description: "Montagne inline, Nylon par l'intérieur de la gaine du plomb",
+    price: 1.00,
+    image: "boutique plombs/Triface inline.jpg",
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
+    weights: ["115","125","135"],
+    quantities: ["1", "2", "3", "4", "5", "10"],
+    aspects: ["Lisse", "Ganuleux"]
+  },
+  {
+    name: "Distance inline",
+    description: "Montagne inline, Nylon par l'intérieur de la gaine du plomb",
+    price: 1.00,
+    image: "boutique plombs/Distanceinline.jpg",
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
+    weights: ["70","80","90"],
+    quantities: ["1", "2", "3", "4", "5", "10"],
+    aspects: ["Lisse", "Ganuleux"]
+  },
+  {
+    name: "Triangle inline",
+    description: "Montagne inline, Nylon par l'intérieur de la gaine du plomb",
+    price: 1.00,
+    image: "boutique plombs/Triangleinline.jpg",
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
+    weights: ["40","50","60"],
+    quantities: ["1", "2", "3", "4", "5", "10"],
+    aspects: ["Lisse", "Ganuleux"]
+  },
 ];
 
 // --- CALCUL DU PRIX SELON POIDS ---
@@ -300,4 +460,3 @@ orderEmailBtn.addEventListener("click", () => {
 
 // --- INIT ---
 renderProducts();
-
