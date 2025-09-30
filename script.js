@@ -9,28 +9,89 @@ const cartCount = document.getElementById("cartCount");
 
 let cart = [];
 
-// --- LISTE DES PRODUITS (à modifier avec tes vrais articles) ---
+// --- LISTE DES PRODUITS ---
 let products = [
   {
     name: "Sondeur",
-    description: "",
+    description: "Accrochage par clip plomb",
     price: 1.00,
     image: "boutique plombs/sondeur.jpg",
-    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Noir moucheté", "Pierre", "Vert herbié", "Marron"],
+    colors: ["Vert cammo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
     weights: ["100"],
     quantities: ["1", "2", "3", "4", "5", "10"],
     aspects: ["Lisse", "Ganuleux"]
   },
   {
     name: "Branche",
-    description: "",
+    description: "Accrochage par clip plomb",
     price: 1.00,
     image: "boutique plombs/Branche.jpg",
-    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Noir moucheté", "Pierre", "Vert herbié", "Marron"],
+    colors: ["Vert cammo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
     weights: ["85","115"],
     quantities: ["1", "2", "3", "4", "5", "10"],
     aspects: ["Lisse", "Ganuleux"]
   },
+  {
+    name: "Moule",
+    description: "Accrochage par clip plomb",
+    price: 1.00,
+    image: "boutique plombs/Moule.jpg",
+    colors: ["Vert cammo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
+    weights: ["70","90"],
+    quantities: ["1", "2", "3", "4", "5", "10"],
+    aspects: ["Lisse", "Ganuleux"]
+  },
+  {
+    name: "Triface",
+    description: "Accrochage par clip plomb",
+    price: 1.00,
+    image: "boutique plombs/Triface.jpg",
+    colors: ["Vert cammo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
+    weights: ["80","90","100","110"],
+    quantities: ["1", "2", "3", "4", "5", "10"],
+    aspects: ["Lisse", "Ganuleux"]
+  },
+  {
+    name: "Distance",
+    description: "Accrochage par clip plomb",
+    price: 1.00,
+    image: "boutique plombs/Distance.jpg",
+    colors: ["Vert cammo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
+    weights: ["40","50","60","70","80","90","100","110","120","130"],
+    quantities: ["1", "2", "3", "4", "5", "10"],
+    aspects: ["Lisse", "Ganuleux"]
+  },
+  {
+    name: "Plomb plat",
+    description: "Accrochage par clip plomb",
+    price: 1.00,
+    image: "boutique plombs/Plomb PLat.jpg",
+    colors: ["Vert cammo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
+    weights: ["70","90","120","140","200"],
+    quantities: ["1", "2", "3", "4", "5", "10"],
+    aspects: ["Lisse", "Ganuleux"]
+  },
+  {
+    name: "Grip ailettes",
+    description: "Accrochage par clip plomb",
+    price: 1.00,
+    image: "boutique plombs/Grip aillettes.jpg",
+    colors: ["Vert cammo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
+    weights: ["55","75","90","110"],
+    quantities: ["1", "2", "3", "4", "5", "10"],
+    aspects: ["Lisse", "Ganuleux"]
+  },
+  {
+    name: "Grip troué",
+    description: "Accrochage par clip plomb",
+    price: 1.00,
+    image: "boutique plombs/Grippe troué.jpg",
+    colors: ["Vert cammo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
+    weights: ["40","50","60","90","100","110","120","130","150","170","210","230"],
+    quantities: ["1", "2", "3", "4", "5", "10"],
+    aspects: ["Lisse", "Ganuleux"]
+  },
+  // Ajoute tes autres produits ici...
 ];
 
 // --- CALCUL DU PRIX SELON POIDS ---
@@ -45,6 +106,7 @@ function getPriceByWeight(weightStr, basePrice) {
   else if (grams === 150) return 1.40;
   else if (grams === 170) return 1.50;
   else if (grams === 180) return 1.60;
+  else if (grams === 200) return 1.70;
   else if (grams === 210) return 1.80;
   else if (grams === 230) return 1.90;
   else if (grams === 300) return 2.50;
@@ -74,61 +136,48 @@ function renderProducts() {
 
     const selects = [];
 
-    if (p.colors.length) {
+    // Fonction pour créer un select avec label
+    const createSelectWithLabel = (labelText, optionsArray, type) => {
+      const wrapper = document.createElement("div");
+      wrapper.style.display = "flex";
+      wrapper.style.alignItems = "center";
+      wrapper.style.gap = "0.5rem";
+      wrapper.style.margin = "0.3rem 0";
+
+      const label = document.createElement("span");
+      label.textContent = labelText + ":";
+
       const sel = document.createElement("select");
-      p.colors.forEach(c => { 
-        const opt = document.createElement("option"); 
-        opt.textContent = c; 
-        sel.appendChild(opt); 
+      optionsArray.forEach(optText => {
+        const opt = document.createElement("option");
+        opt.textContent = optText;
+        sel.appendChild(opt);
       });
-      selects.push({ type: "Couleur", sel });
-      card.appendChild(sel);
+
+      wrapper.appendChild(label);
+      wrapper.appendChild(sel);
+      selects.push({ type: type, sel });
+      card.appendChild(wrapper);
+
+      return sel;
     }
 
+    if (p.colors.length) createSelectWithLabel("Couleur", p.colors, "Couleur");
     if (p.weights.length) {
-      const sel = document.createElement("select");
-      p.weights.forEach(w => { 
-        const opt = document.createElement("option"); 
-        opt.textContent = w; 
-        sel.appendChild(opt); 
-      });
-      selects.push({ type: "Poids", sel });
-      card.appendChild(sel);
-
-      sel.addEventListener("change", () => {
-        let finalPrice = getPriceByWeight(sel.value, parseFloat(p.price));
+      const weightSelect = createSelectWithLabel("Poids", p.weights, "Poids");
+      weightSelect.addEventListener("change", () => {
+        let finalPrice = getPriceByWeight(weightSelect.value, parseFloat(p.price));
         priceEl.textContent = `Prix : ${finalPrice.toFixed(2).replace(".", ",")} €`;
       });
     }
-
-    if (p.quantities.length) {
-      const sel = document.createElement("select");
-      p.quantities.forEach(q => { 
-        const opt = document.createElement("option"); 
-        opt.textContent = q; 
-        sel.appendChild(opt); 
-      });
-      selects.push({ type: "Nombre", sel });
-      card.appendChild(sel);
-    }
-
-    if (p.aspects.length) {
-      const sel = document.createElement("select");
-      p.aspects.forEach(a => { 
-        const opt = document.createElement("option"); 
-        opt.textContent = a; 
-        sel.appendChild(opt); 
-      });
-      selects.push({ type: "Aspect", sel });
-      card.appendChild(sel);
-    }
+    if (p.quantities.length) createSelectWithLabel("Nombre", p.quantities, "Nombre");
+    if (p.aspects.length) createSelectWithLabel("Aspect", p.aspects, "Aspect");
 
     const btn = document.createElement("button");
     btn.textContent = "Ajouter au panier";
     btn.addEventListener("click", () => {
       let selectedWeight = selects.find(s => s.type === "Poids")?.sel.value || "";
       let finalPrice = getPriceByWeight(selectedWeight, parseFloat(p.price));
-
       const chosen = selects.map(s => `${s.type}: ${s.sel.value}`).join(", ");
       addToCart({ name: p.name, price: finalPrice, options: chosen });
     });
@@ -187,4 +236,3 @@ orderEmailBtn.addEventListener("click", () => {
 
 // --- INIT ---
 renderProducts();
-
