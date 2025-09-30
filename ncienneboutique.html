@@ -1,0 +1,679 @@
+<html lang="fr"><head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="img/ico/icon.jpg" type="image/x-icon">
+  <title>LDcarpe - Boutique</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="menu.css">
+  <style>
+    .product { border:1px solid #ddd; padding:10px; margin:10px; border-radius:8px; max-width:220px; display:inline-block; vertical-align:top; }
+    .product img { max-width:200px; border-radius:6px; display:block; margin-bottom:8px; }
+    #cart { border:1px solid #aaa; padding:10px; margin:20px; display:none; }
+    #admin-panel { border:1px solid #aaa; padding:10px; margin:20px; display:none; }
+    button { margin-top:5px; cursor:pointer; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="boutique.html">Boutique</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<header>
+  <h1 class="title">Plombs de Pêche à la carpe</h1>
+  <div id="cart-icon" style="cursor:pointer;">🛒Panier (<span id="cart-count">1</span>)</div>
+</header>
+
+<!-- Liste des produits -->
+<main id="product-list"><div class="product" data-prix-par-poids="{&quot;85&quot;:1,&quot;115&quot;:1}">
+      <img src="img/plombs/Branche.jpg" width="200">
+      <h3>Branche</h3>
+      
+      <label>Poids:
+        <select class="poids" onchange="updatePrice(this)">
+          <option value="85">85g</option><option value="115">115g</option>
+        </select>
+      </label><br>
+      <label>Nombre:
+        <input type="number" class="nombre" min="1" value="1" onchange="updatePrice(this)">
+      </label><br>
+      <label>Couleur:
+        <select class="couleur">
+          <option value="Vert Camo">Vert Camo</option><option value="Sable Foncé">Sable Foncé</option><option value="Sable Claire">Sable Claire</option><option value="Sable Vert">Sable Vert</option><option value="Noir">Noir</option><option value="Noir Bleuter">Noir Bleuter</option><option value="Pierre">Pierre</option><option value="Vert Herbie">Vert Herbie</option><option value="Marron">Marron</option>
+        </select>
+      </label><br>
+      <label>Aspect:
+        <select class="aspect">
+          <option value="Lisse">Lisse</option><option value="Granuleux">Granuleux</option>
+        </select>
+      </label>
+    
+      <p>Prix: <span class="price">1.00</span> €</p>
+      <button onclick="addToCart(this, {&quot;id&quot;:1,&quot;name&quot;:&quot;Branche&quot;,&quot;image&quot;:&quot;img/plombs/Branche.jpg&quot;,&quot;options&quot;:{&quot;poids&quot;:[85,115],&quot;couleur&quot;:[&quot;Vert Camo&quot;,&quot;Sable Foncé&quot;,&quot;Sable Claire&quot;,&quot;Sable Vert&quot;,&quot;Noir&quot;,&quot;Noir Bleuter&quot;,&quot;Pierre&quot;,&quot;Vert Herbie&quot;,&quot;Marron&quot;],&quot;aspect&quot;:[&quot;Lisse&quot;,&quot;Granuleux&quot;]},&quot;prixParPoids&quot;:{&quot;85&quot;:1,&quot;115&quot;:1}})">Ajouter</button>
+    </div><div class="product" data-prix-par-poids="{&quot;100&quot;:1}">
+      <img src="img/plombs/sondeur.jpg" width="200">
+      <h3>Sondeur</h3>
+      
+      <label>Poids:
+        <select class="poids" onchange="updatePrice(this)">
+          <option value="100">100g</option>
+        </select>
+      </label><br>
+      <label>Nombre:
+        <input type="number" class="nombre" min="1" value="1" onchange="updatePrice(this)">
+      </label><br>
+      <label>Couleur:
+        <select class="couleur">
+          <option value="Vert Camo">Vert Camo</option><option value="Sable Foncé">Sable Foncé</option><option value="Sable Claire">Sable Claire</option><option value="Sable Vert">Sable Vert</option><option value="Noir">Noir</option><option value="Noir Bleuter">Noir Bleuter</option><option value="Pierre">Pierre</option><option value="Vert Herbie">Vert Herbie</option><option value="Marron">Marron</option>
+        </select>
+      </label><br>
+      <label>Aspect:
+        <select class="aspect">
+          <option value="Lisse">Lisse</option><option value="Granuleux">Granuleux</option>
+        </select>
+      </label>
+    
+      <p>Prix: <span class="price">1.00</span> €</p>
+      <button onclick="addToCart(this, {&quot;id&quot;:2,&quot;name&quot;:&quot;Sondeur&quot;,&quot;image&quot;:&quot;img/plombs/sondeur.jpg&quot;,&quot;options&quot;:{&quot;poids&quot;:[100],&quot;couleur&quot;:[&quot;Vert Camo&quot;,&quot;Sable Foncé&quot;,&quot;Sable Claire&quot;,&quot;Sable Vert&quot;,&quot;Noir&quot;,&quot;Noir Bleuter&quot;,&quot;Pierre&quot;,&quot;Vert Herbie&quot;,&quot;Marron&quot;],&quot;aspect&quot;:[&quot;Lisse&quot;,&quot;Granuleux&quot;]},&quot;prixParPoids&quot;:{&quot;100&quot;:1}})">Ajouter</button>
+    </div><div class="product" data-prix-par-poids="{&quot;60&quot;:1,&quot;80&quot;:1,&quot;90&quot;:1}">
+      <img src="img/plombs/Poire inline.jpg" width="200">
+      <h3>Poire Plat Inline</h3>
+      
+      <label>Poids:
+        <select class="poids" onchange="updatePrice(this)">
+          <option value="60">60g</option><option value="80">80g</option><option value="90">90g</option>
+        </select>
+      </label><br>
+      <label>Nombre:
+        <input type="number" class="nombre" min="1" value="1" onchange="updatePrice(this)">
+      </label><br>
+      <label>Couleur:
+        <select class="couleur">
+          <option value="Vert Camo">Vert Camo</option><option value="Sable Foncé">Sable Foncé</option><option value="Sable Claire">Sable Claire</option><option value="Sable Vert">Sable Vert</option><option value="Noir">Noir</option><option value="Noir Bleuter">Noir Bleuter</option><option value="Pierre">Pierre</option><option value="Vert Herbie">Vert Herbie</option><option value="Marron">Marron</option>
+        </select>
+      </label><br>
+      <label>Aspect:
+        <select class="aspect">
+          <option value="Lisse">Lisse</option><option value="Granuleux">Granuleux</option>
+        </select>
+      </label>
+    
+      <p>Prix: <span class="price">1.00</span> €</p>
+      <button onclick="addToCart(this, {&quot;id&quot;:3,&quot;name&quot;:&quot;Poire Plat Inline&quot;,&quot;image&quot;:&quot;img/plombs/Poire inline.jpg&quot;,&quot;options&quot;:{&quot;poids&quot;:[60,80,90],&quot;couleur&quot;:[&quot;Vert Camo&quot;,&quot;Sable Foncé&quot;,&quot;Sable Claire&quot;,&quot;Sable Vert&quot;,&quot;Noir&quot;,&quot;Noir Bleuter&quot;,&quot;Pierre&quot;,&quot;Vert Herbie&quot;,&quot;Marron&quot;],&quot;aspect&quot;:[&quot;Lisse&quot;,&quot;Granuleux&quot;]},&quot;prixParPoids&quot;:{&quot;60&quot;:1,&quot;80&quot;:1,&quot;90&quot;:1}})">Ajouter</button>
+    </div><div class="product" data-prix-par-poids="{&quot;65&quot;:1,&quot;85&quot;:1,&quot;95&quot;:1}">
+      <img src="img/plombs/Grappa inline.jpg" width="200">
+      <h3>Grappa Inline</h3>
+      
+      <label>Poids:
+        <select class="poids" onchange="updatePrice(this)">
+          <option value="65">65g</option><option value="85">85g</option><option value="95">95g</option>
+        </select>
+      </label><br>
+      <label>Nombre:
+        <input type="number" class="nombre" min="1" value="1" onchange="updatePrice(this)">
+      </label><br>
+      <label>Couleur:
+        <select class="couleur">
+          <option value="Vert Camo">Vert Camo</option><option value="Sable Foncé">Sable Foncé</option><option value="Sable Claire">Sable Claire</option><option value="Sable Vert">Sable Vert</option><option value="Noir">Noir</option><option value="Noir Bleuter">Noir Bleuter</option><option value="Pierre">Pierre</option><option value="Vert Herbie">Vert Herbie</option><option value="Marron">Marron</option>
+        </select>
+      </label><br>
+      <label>Aspect:
+        <select class="aspect">
+          <option value="Lisse">Lisse</option><option value="Granuleux">Granuleux</option>
+        </select>
+      </label>
+    
+      <p>Prix: <span class="price">1.00</span> €</p>
+      <button onclick="addToCart(this, {&quot;id&quot;:4,&quot;name&quot;:&quot;Grappa Inline&quot;,&quot;image&quot;:&quot;img/plombs/Grappa inline.jpg&quot;,&quot;options&quot;:{&quot;poids&quot;:[65,85,95],&quot;couleur&quot;:[&quot;Vert Camo&quot;,&quot;Sable Foncé&quot;,&quot;Sable Claire&quot;,&quot;Sable Vert&quot;,&quot;Noir&quot;,&quot;Noir Bleuter&quot;,&quot;Pierre&quot;,&quot;Vert Herbie&quot;,&quot;Marron&quot;],&quot;aspect&quot;:[&quot;Lisse&quot;,&quot;Granuleux&quot;]},&quot;prixParPoids&quot;:{&quot;65&quot;:1,&quot;85&quot;:1,&quot;95&quot;:1}})">Ajouter</button>
+    </div><div class="product" data-prix-par-poids="{&quot;70&quot;:1,&quot;90&quot;:1}">
+      <img src="img/plombs/Moule.jpg" width="200">
+      <h3>Moule</h3>
+      
+      <label>Poids:
+        <select class="poids" onchange="updatePrice(this)">
+          <option value="70">70g</option><option value="90">90g</option>
+        </select>
+      </label><br>
+      <label>Nombre:
+        <input type="number" class="nombre" min="1" value="1" onchange="updatePrice(this)">
+      </label><br>
+      <label>Couleur:
+        <select class="couleur">
+          <option value="Vert Camo">Vert Camo</option><option value="Sable Foncé">Sable Foncé</option><option value="Sable Claire">Sable Claire</option><option value="Sable Vert">Sable Vert</option><option value="Noir">Noir</option><option value="Noir Bleuter">Noir Bleuter</option><option value="Pierre">Pierre</option><option value="Vert Herbie">Vert Herbie</option><option value="Marron">Marron</option>
+        </select>
+      </label><br>
+      <label>Aspect:
+        <select class="aspect">
+          <option value="Lisse">Lisse</option><option value="Granuleux">Granuleux</option>
+        </select>
+      </label>
+    
+      <p>Prix: <span class="price">1.00</span> €</p>
+      <button onclick="addToCart(this, {&quot;id&quot;:5,&quot;name&quot;:&quot;Moule&quot;,&quot;image&quot;:&quot;img/plombs/Moule.jpg&quot;,&quot;options&quot;:{&quot;poids&quot;:[70,90],&quot;couleur&quot;:[&quot;Vert Camo&quot;,&quot;Sable Foncé&quot;,&quot;Sable Claire&quot;,&quot;Sable Vert&quot;,&quot;Noir&quot;,&quot;Noir Bleuter&quot;,&quot;Pierre&quot;,&quot;Vert Herbie&quot;,&quot;Marron&quot;],&quot;aspect&quot;:[&quot;Lisse&quot;,&quot;Granuleux&quot;]},&quot;prixParPoids&quot;:{&quot;70&quot;:1,&quot;90&quot;:1}})">Ajouter</button>
+    </div><div class="product" data-prix-par-poids="{&quot;115&quot;:1,&quot;125&quot;:1,&quot;135&quot;:1}">
+      <img src="img/plombs/Triface inline.jpg" width="200">
+      <h3>Triface Inline</h3>
+      
+      <label>Poids:
+        <select class="poids" onchange="updatePrice(this)">
+          <option value="115">115g</option><option value="125">125g</option><option value="135">135g</option>
+        </select>
+      </label><br>
+      <label>Nombre:
+        <input type="number" class="nombre" min="1" value="1" onchange="updatePrice(this)">
+      </label><br>
+      <label>Couleur:
+        <select class="couleur">
+          <option value="Vert Camo">Vert Camo</option><option value="Sable Foncé">Sable Foncé</option><option value="Sable Claire">Sable Claire</option><option value="Sable Vert">Sable Vert</option><option value="Noir">Noir</option><option value="Noir Bleuter">Noir Bleuter</option><option value="Pierre">Pierre</option><option value="Vert Herbie">Vert Herbie</option><option value="Marron">Marron</option>
+        </select>
+      </label><br>
+      <label>Aspect:
+        <select class="aspect">
+          <option value="Lisse">Lisse</option><option value="Granuleux">Granuleux</option>
+        </select>
+      </label>
+    
+      <p>Prix: <span class="price">1.00</span> €</p>
+      <button onclick="addToCart(this, {&quot;id&quot;:6,&quot;name&quot;:&quot;Triface Inline&quot;,&quot;image&quot;:&quot;img/plombs/Triface inline.jpg&quot;,&quot;options&quot;:{&quot;poids&quot;:[115,125,135],&quot;couleur&quot;:[&quot;Vert Camo&quot;,&quot;Sable Foncé&quot;,&quot;Sable Claire&quot;,&quot;Sable Vert&quot;,&quot;Noir&quot;,&quot;Noir Bleuter&quot;,&quot;Pierre&quot;,&quot;Vert Herbie&quot;,&quot;Marron&quot;],&quot;aspect&quot;:[&quot;Lisse&quot;,&quot;Granuleux&quot;]},&quot;prixParPoids&quot;:{&quot;115&quot;:1,&quot;125&quot;:1,&quot;135&quot;:1}})">Ajouter</button>
+    </div><div class="product" data-prix-par-poids="{&quot;80&quot;:1,&quot;90&quot;:1,&quot;100&quot;:1,&quot;110&quot;:1}">
+      <img src="img/plombs/Triface.jpg" width="200">
+      <h3>Triface</h3>
+      
+      <label>Poids:
+        <select class="poids" onchange="updatePrice(this)">
+          <option value="80">80g</option><option value="90">90g</option><option value="100">100g</option><option value="110">110g</option>
+        </select>
+      </label><br>
+      <label>Nombre:
+        <input type="number" class="nombre" min="1" value="1" onchange="updatePrice(this)">
+      </label><br>
+      <label>Couleur:
+        <select class="couleur">
+          <option value="Vert Camo">Vert Camo</option><option value="Sable Foncé">Sable Foncé</option><option value="Sable Claire">Sable Claire</option><option value="Sable Vert">Sable Vert</option><option value="Noir">Noir</option><option value="Noir Bleuter">Noir Bleuter</option><option value="Pierre">Pierre</option><option value="Vert Herbie">Vert Herbie</option><option value="Marron">Marron</option>
+        </select>
+      </label><br>
+      <label>Aspect:
+        <select class="aspect">
+          <option value="Lisse">Lisse</option><option value="Granuleux">Granuleux</option>
+        </select>
+      </label>
+    
+      <p>Prix: <span class="price">1.00</span> €</p>
+      <button onclick="addToCart(this, {&quot;id&quot;:7,&quot;name&quot;:&quot;Triface&quot;,&quot;image&quot;:&quot;img/plombs/Triface.jpg&quot;,&quot;options&quot;:{&quot;poids&quot;:[80,90,100,110],&quot;couleur&quot;:[&quot;Vert Camo&quot;,&quot;Sable Foncé&quot;,&quot;Sable Claire&quot;,&quot;Sable Vert&quot;,&quot;Noir&quot;,&quot;Noir Bleuter&quot;,&quot;Pierre&quot;,&quot;Vert Herbie&quot;,&quot;Marron&quot;],&quot;aspect&quot;:[&quot;Lisse&quot;,&quot;Granuleux&quot;]},&quot;prixParPoids&quot;:{&quot;80&quot;:1,&quot;90&quot;:1,&quot;100&quot;:1,&quot;110&quot;:1}})">Ajouter</button>
+    </div><div class="product" data-prix-par-poids="{&quot;40&quot;:1,&quot;50&quot;:1,&quot;60&quot;:1,&quot;70&quot;:1,&quot;80&quot;:1,&quot;90&quot;:1,&quot;100&quot;:1,&quot;110&quot;:1,&quot;120&quot;:1,&quot;130&quot;:1}">
+      <img src="img/plombs/Distance.jpg" width="200">
+      <h3>Distance</h3>
+      
+      <label>Poids:
+        <select class="poids" onchange="updatePrice(this)">
+          <option value="40">40g</option><option value="50">50g</option><option value="60">60g</option><option value="70">70g</option><option value="80">80g</option><option value="90">90g</option><option value="100">100g</option><option value="110">110g</option><option value="120">120g</option><option value="130">130g</option>
+        </select>
+      </label><br>
+      <label>Nombre:
+        <input type="number" class="nombre" min="1" value="1" onchange="updatePrice(this)">
+      </label><br>
+      <label>Couleur:
+        <select class="couleur">
+          <option value="Vert Camo">Vert Camo</option><option value="Sable Foncé">Sable Foncé</option><option value="Sable Claire">Sable Claire</option><option value="Sable Vert">Sable Vert</option><option value="Noir">Noir</option><option value="Noir Bleuter">Noir Bleuter</option><option value="Pierre">Pierre</option><option value="Vert Herbie">Vert Herbie</option><option value="Marron">Marron</option>
+        </select>
+      </label><br>
+      <label>Aspect:
+        <select class="aspect">
+          <option value="Lisse">Lisse</option><option value="Granuleux">Granuleux</option>
+        </select>
+      </label>
+    
+      <p>Prix: <span class="price">1.00</span> €</p>
+      <button onclick="addToCart(this, {&quot;id&quot;:8,&quot;name&quot;:&quot;Distance&quot;,&quot;image&quot;:&quot;img/plombs/Distance.jpg&quot;,&quot;options&quot;:{&quot;poids&quot;:[40,50,60,70,80,90,100,110,120,130],&quot;couleur&quot;:[&quot;Vert Camo&quot;,&quot;Sable Foncé&quot;,&quot;Sable Claire&quot;,&quot;Sable Vert&quot;,&quot;Noir&quot;,&quot;Noir Bleuter&quot;,&quot;Pierre&quot;,&quot;Vert Herbie&quot;,&quot;Marron&quot;],&quot;aspect&quot;:[&quot;Lisse&quot;,&quot;Granuleux&quot;]},&quot;prixParPoids&quot;:{&quot;40&quot;:1,&quot;50&quot;:1,&quot;60&quot;:1,&quot;70&quot;:1,&quot;80&quot;:1,&quot;90&quot;:1,&quot;100&quot;:1,&quot;110&quot;:1,&quot;120&quot;:1,&quot;130&quot;:1}})">Ajouter</button>
+    </div><div class="product" data-prix-par-poids="{&quot;70&quot;:1,&quot;90&quot;:1,&quot;120&quot;:1,&quot;200&quot;:1.7}">
+      <img src="img/plombs/Plomb PLat.jpg" width="200">
+      <h3>Plomb Plat</h3>
+      
+      <label>Poids:
+        <select class="poids" onchange="updatePrice(this)">
+          <option value="70">70g</option><option value="90">90g</option><option value="120">120g</option><option value="200">200g</option>
+        </select>
+      </label><br>
+      <label>Nombre:
+        <input type="number" class="nombre" min="1" value="1" onchange="updatePrice(this)">
+      </label><br>
+      <label>Couleur:
+        <select class="couleur">
+          <option value="Vert Camo">Vert Camo</option><option value="Sable Foncé">Sable Foncé</option><option value="Sable Claire">Sable Claire</option><option value="Sable Vert">Sable Vert</option><option value="Noir">Noir</option><option value="Noir Bleuter">Noir Bleuter</option><option value="Pierre">Pierre</option><option value="Vert Herbie">Vert Herbie</option><option value="Marron">Marron</option>
+        </select>
+      </label><br>
+      <label>Aspect:
+        <select class="aspect">
+          <option value="Lisse">Lisse</option><option value="Granuleux">Granuleux</option>
+        </select>
+      </label>
+    
+      <p>Prix: <span class="price">1.00</span> €</p>
+      <button onclick="addToCart(this, {&quot;id&quot;:9,&quot;name&quot;:&quot;Plomb Plat&quot;,&quot;image&quot;:&quot;img/plombs/Plomb PLat.jpg&quot;,&quot;options&quot;:{&quot;poids&quot;:[70,90,120,200],&quot;couleur&quot;:[&quot;Vert Camo&quot;,&quot;Sable Foncé&quot;,&quot;Sable Claire&quot;,&quot;Sable Vert&quot;,&quot;Noir&quot;,&quot;Noir Bleuter&quot;,&quot;Pierre&quot;,&quot;Vert Herbie&quot;,&quot;Marron&quot;],&quot;aspect&quot;:[&quot;Lisse&quot;,&quot;Granuleux&quot;]},&quot;prixParPoids&quot;:{&quot;70&quot;:1,&quot;90&quot;:1,&quot;120&quot;:1,&quot;200&quot;:1.7}})">Ajouter</button>
+    </div><div class="product" data-prix-par-poids="{&quot;70&quot;:1,&quot;80&quot;:1,&quot;90&quot;:1}">
+      <img src="img/plombs/Distanceinline.jpg" width="200">
+      <h3>Distance Inline</h3>
+      
+      <label>Poids:
+        <select class="poids" onchange="updatePrice(this)">
+          <option value="70">70g</option><option value="80">80g</option><option value="90">90g</option>
+        </select>
+      </label><br>
+      <label>Nombre:
+        <input type="number" class="nombre" min="1" value="1" onchange="updatePrice(this)">
+      </label><br>
+      <label>Couleur:
+        <select class="couleur">
+          <option value="Vert Camo">Vert Camo</option><option value="Sable Foncé">Sable Foncé</option><option value="Sable Claire">Sable Claire</option><option value="Sable Vert">Sable Vert</option><option value="Noir">Noir</option><option value="Noir Bleuter">Noir Bleuter</option><option value="Pierre">Pierre</option><option value="Vert Herbie">Vert Herbie</option><option value="Marron">Marron</option>
+        </select>
+      </label><br>
+      <label>Aspect:
+        <select class="aspect">
+          <option value="Lisse">Lisse</option><option value="Granuleux">Granuleux</option>
+        </select>
+      </label>
+    
+      <p>Prix: <span class="price">1.00</span> €</p>
+      <button onclick="addToCart(this, {&quot;id&quot;:10,&quot;name&quot;:&quot;Distance Inline&quot;,&quot;image&quot;:&quot;img/plombs/Distanceinline.jpg&quot;,&quot;options&quot;:{&quot;poids&quot;:[70,80,90],&quot;couleur&quot;:[&quot;Vert Camo&quot;,&quot;Sable Foncé&quot;,&quot;Sable Claire&quot;,&quot;Sable Vert&quot;,&quot;Noir&quot;,&quot;Noir Bleuter&quot;,&quot;Pierre&quot;,&quot;Vert Herbie&quot;,&quot;Marron&quot;],&quot;aspect&quot;:[&quot;Lisse&quot;,&quot;Granuleux&quot;]},&quot;prixParPoids&quot;:{&quot;70&quot;:1,&quot;80&quot;:1,&quot;90&quot;:1}})">Ajouter</button>
+    </div><div class="product" data-prix-par-poids="{&quot;55&quot;:1,&quot;65&quot;:1,&quot;90&quot;:1,&quot;110&quot;:1}">
+      <img src="img/plombs/Grip aillettes.jpg" width="200">
+      <h3>Grips ailette</h3>
+      
+      <label>Poids:
+        <select class="poids" onchange="updatePrice(this)">
+          <option value="55">55g</option><option value="65">65g</option><option value="90">90g</option><option value="110">110g</option>
+        </select>
+      </label><br>
+      <label>Nombre:
+        <input type="number" class="nombre" min="1" value="1" onchange="updatePrice(this)">
+      </label><br>
+      <label>Couleur:
+        <select class="couleur">
+          <option value="Vert Camo">Vert Camo</option><option value="Sable Foncé">Sable Foncé</option><option value="Sable Claire">Sable Claire</option><option value="Sable Vert">Sable Vert</option><option value="Noir">Noir</option><option value="Noir Bleuter">Noir Bleuter</option><option value="Pierre">Pierre</option><option value="Vert Herbie">Vert Herbie</option><option value="Marron">Marron</option>
+        </select>
+      </label><br>
+      <label>Aspect:
+        <select class="aspect">
+          <option value="Lisse">Lisse</option><option value="Granuleux">Granuleux</option>
+        </select>
+      </label>
+    
+      <p>Prix: <span class="price">1.00</span> €</p>
+      <button onclick="addToCart(this, {&quot;id&quot;:11,&quot;name&quot;:&quot;Grips ailette&quot;,&quot;image&quot;:&quot;img/plombs/Grip aillettes.jpg&quot;,&quot;options&quot;:{&quot;poids&quot;:[55,65,90,110],&quot;couleur&quot;:[&quot;Vert Camo&quot;,&quot;Sable Foncé&quot;,&quot;Sable Claire&quot;,&quot;Sable Vert&quot;,&quot;Noir&quot;,&quot;Noir Bleuter&quot;,&quot;Pierre&quot;,&quot;Vert Herbie&quot;,&quot;Marron&quot;],&quot;aspect&quot;:[&quot;Lisse&quot;,&quot;Granuleux&quot;]},&quot;prixParPoids&quot;:{&quot;55&quot;:1,&quot;65&quot;:1,&quot;90&quot;:1,&quot;110&quot;:1}})">Ajouter</button>
+    </div><div class="product" data-prix-par-poids="{&quot;40&quot;:1,&quot;50&quot;:1,&quot;60&quot;:1,&quot;90&quot;:1,&quot;100&quot;:1,&quot;110&quot;:1,&quot;120&quot;:1,&quot;130&quot;:1,&quot;150&quot;:1.4,&quot;170&quot;:1.5,&quot;210&quot;:1.8,&quot;230&quot;:1.9}">
+      <img src="img/plombs/Grippe troué.jpg" width="200">
+      <h3>Grips Troué</h3>
+      
+      <label>Poids:
+        <select class="poids" onchange="updatePrice(this)">
+          <option value="40">40g</option><option value="50">50g</option><option value="60">60g</option><option value="90">90g</option><option value="100">100g</option><option value="110">110g</option><option value="120">120g</option><option value="130">130g</option><option value="150">150g</option><option value="170">170g</option><option value="210">210g</option><option value="230">230g</option>
+        </select>
+      </label><br>
+      <label>Nombre:
+        <input type="number" class="nombre" min="1" value="1" onchange="updatePrice(this)">
+      </label><br>
+      <label>Couleur:
+        <select class="couleur">
+          <option value="Vert Camo">Vert Camo</option><option value="Sable Foncé">Sable Foncé</option><option value="Sable Claire">Sable Claire</option><option value="Sable Vert">Sable Vert</option><option value="Noir">Noir</option><option value="Noir Bleuter">Noir Bleuter</option><option value="Pierre">Pierre</option><option value="Vert Herbie">Vert Herbie</option><option value="Marron">Marron</option>
+        </select>
+      </label><br>
+      <label>Aspect:
+        <select class="aspect">
+          <option value="Lisse">Lisse</option><option value="Granuleux">Granuleux</option>
+        </select>
+      </label>
+    
+      <p>Prix: <span class="price">1.00</span> €</p>
+      <button onclick="addToCart(this, {&quot;id&quot;:12,&quot;name&quot;:&quot;Grips Troué&quot;,&quot;image&quot;:&quot;img/plombs/Grippe troué.jpg&quot;,&quot;options&quot;:{&quot;poids&quot;:[40,50,60,90,100,110,120,130,150,170,210,230],&quot;couleur&quot;:[&quot;Vert Camo&quot;,&quot;Sable Foncé&quot;,&quot;Sable Claire&quot;,&quot;Sable Vert&quot;,&quot;Noir&quot;,&quot;Noir Bleuter&quot;,&quot;Pierre&quot;,&quot;Vert Herbie&quot;,&quot;Marron&quot;],&quot;aspect&quot;:[&quot;Lisse&quot;,&quot;Granuleux&quot;]},&quot;prixParPoids&quot;:{&quot;40&quot;:1,&quot;50&quot;:1,&quot;60&quot;:1,&quot;90&quot;:1,&quot;100&quot;:1,&quot;110&quot;:1,&quot;120&quot;:1,&quot;130&quot;:1,&quot;150&quot;:1.4,&quot;170&quot;:1.5,&quot;210&quot;:1.8,&quot;230&quot;:1.9}})">Ajouter</button>
+    </div><div class="product" data-prix-par-poids="{&quot;20&quot;:1,&quot;40&quot;:1,&quot;60&quot;:1,&quot;80&quot;:1}">
+      <img src="img/plombs/Losange.jpg" width="200">
+      <h3>Losange</h3>
+      
+      <label>Poids:
+        <select class="poids" onchange="updatePrice(this)">
+          <option value="20">20g</option><option value="40">40g</option><option value="60">60g</option><option value="80">80g</option>
+        </select>
+      </label><br>
+      <label>Nombre:
+        <input type="number" class="nombre" min="1" value="1" onchange="updatePrice(this)">
+      </label><br>
+      <label>Couleur:
+        <select class="couleur">
+          <option value="Vert Camo">Vert Camo</option><option value="Sable Foncé">Sable Foncé</option><option value="Sable Claire">Sable Claire</option><option value="Sable Vert">Sable Vert</option><option value="Noir">Noir</option><option value="Noir Bleuter">Noir Bleuter</option><option value="Pierre">Pierre</option><option value="Vert Herbie">Vert Herbie</option><option value="Marron">Marron</option>
+        </select>
+      </label><br>
+      <label>Aspect:
+        <select class="aspect">
+          <option value="Lisse">Lisse</option><option value="Granuleux">Granuleux</option>
+        </select>
+      </label>
+    
+      <p>Prix: <span class="price">1.00</span> €</p>
+      <button onclick="addToCart(this, {&quot;id&quot;:13,&quot;name&quot;:&quot;Losange&quot;,&quot;image&quot;:&quot;img/plombs/Losange.jpg&quot;,&quot;options&quot;:{&quot;poids&quot;:[20,40,60,80],&quot;couleur&quot;:[&quot;Vert Camo&quot;,&quot;Sable Foncé&quot;,&quot;Sable Claire&quot;,&quot;Sable Vert&quot;,&quot;Noir&quot;,&quot;Noir Bleuter&quot;,&quot;Pierre&quot;,&quot;Vert Herbie&quot;,&quot;Marron&quot;],&quot;aspect&quot;:[&quot;Lisse&quot;,&quot;Granuleux&quot;]},&quot;prixParPoids&quot;:{&quot;20&quot;:1,&quot;40&quot;:1,&quot;60&quot;:1,&quot;80&quot;:1}})">Ajouter</button>
+    </div><div class="product" data-prix-par-poids="{&quot;40&quot;:1,&quot;60&quot;:1,&quot;80&quot;:1}">
+      <img src="img/plombs/Boule.jpg" width="200">
+      <h3>Boule</h3>
+      
+      <label>Poids:
+        <select class="poids" onchange="updatePrice(this)">
+          <option value="40">40g</option><option value="60">60g</option><option value="80">80g</option>
+        </select>
+      </label><br>
+      <label>Nombre:
+        <input type="number" class="nombre" min="1" value="1" onchange="updatePrice(this)">
+      </label><br>
+      <label>Couleur:
+        <select class="couleur">
+          <option value="Vert Camo">Vert Camo</option><option value="Sable Foncé">Sable Foncé</option><option value="Sable Claire">Sable Claire</option><option value="Sable Vert">Sable Vert</option><option value="Noir">Noir</option><option value="Noir Bleuter">Noir Bleuter</option><option value="Pierre">Pierre</option><option value="Vert Herbie">Vert Herbie</option><option value="Marron">Marron</option>
+        </select>
+      </label><br>
+      <label>Aspect:
+        <select class="aspect">
+          <option value="Lisse">Lisse</option><option value="Granuleux">Granuleux</option>
+        </select>
+      </label>
+    
+      <p>Prix: <span class="price">1.00</span> €</p>
+      <button onclick="addToCart(this, {&quot;id&quot;:14,&quot;name&quot;:&quot;Boule&quot;,&quot;image&quot;:&quot;img/plombs/Boule.jpg&quot;,&quot;options&quot;:{&quot;poids&quot;:[40,60,80],&quot;couleur&quot;:[&quot;Vert Camo&quot;,&quot;Sable Foncé&quot;,&quot;Sable Claire&quot;,&quot;Sable Vert&quot;,&quot;Noir&quot;,&quot;Noir Bleuter&quot;,&quot;Pierre&quot;,&quot;Vert Herbie&quot;,&quot;Marron&quot;],&quot;aspect&quot;:[&quot;Lisse&quot;,&quot;Granuleux&quot;]},&quot;prixParPoids&quot;:{&quot;40&quot;:1,&quot;60&quot;:1,&quot;80&quot;:1}})">Ajouter</button>
+    </div><div class="product" data-prix-par-poids="{&quot;70&quot;:1,&quot;80&quot;:1,&quot;90&quot;:1,&quot;110&quot;:1,&quot;300&quot;:2.5,&quot;350&quot;:2.7}">
+      <img src="img/plombs/Grappa.jpg" width="200">
+      <h3>Grappa</h3>
+      
+      <label>Poids:
+        <select class="poids" onchange="updatePrice(this)">
+          <option value="70">70g</option><option value="80">80g</option><option value="90">90g</option><option value="110">110g</option><option value="300">300g</option><option value="350">350g</option>
+        </select>
+      </label><br>
+      <label>Nombre:
+        <input type="number" class="nombre" min="1" value="1" onchange="updatePrice(this)">
+      </label><br>
+      <label>Couleur:
+        <select class="couleur">
+          <option value="Vert Camo">Vert Camo</option><option value="Sable Foncé">Sable Foncé</option><option value="Sable Claire">Sable Claire</option><option value="Sable Vert">Sable Vert</option><option value="Noir">Noir</option><option value="Noir Bleuter">Noir Bleuter</option><option value="Pierre">Pierre</option><option value="Vert Herbie">Vert Herbie</option><option value="Marron">Marron</option>
+        </select>
+      </label><br>
+      <label>Aspect:
+        <select class="aspect">
+          <option value="Lisse">Lisse</option><option value="Granuleux">Granuleux</option>
+        </select>
+      </label>
+    
+      <p>Prix: <span class="price">1.00</span> €</p>
+      <button onclick="addToCart(this, {&quot;id&quot;:15,&quot;name&quot;:&quot;Grappa&quot;,&quot;image&quot;:&quot;img/plombs/Grappa.jpg&quot;,&quot;options&quot;:{&quot;poids&quot;:[70,80,90,110,300,350],&quot;couleur&quot;:[&quot;Vert Camo&quot;,&quot;Sable Foncé&quot;,&quot;Sable Claire&quot;,&quot;Sable Vert&quot;,&quot;Noir&quot;,&quot;Noir Bleuter&quot;,&quot;Pierre&quot;,&quot;Vert Herbie&quot;,&quot;Marron&quot;],&quot;aspect&quot;:[&quot;Lisse&quot;,&quot;Granuleux&quot;]},&quot;prixParPoids&quot;:{&quot;70&quot;:1,&quot;80&quot;:1,&quot;90&quot;:1,&quot;110&quot;:1,&quot;300&quot;:2.5,&quot;350&quot;:2.7}})">Ajouter</button>
+    </div><div class="product" data-prix-par-poids="{&quot;120&quot;:1,&quot;150&quot;:1.4,&quot;180&quot;:1.6,&quot;200&quot;:1.7}">
+      <img src="img/plombs/Bombe.jpg" width="200">
+      <h3>Bombe</h3>
+      
+      <label>Poids:
+        <select class="poids" onchange="updatePrice(this)">
+          <option value="120">120g</option><option value="150">150g</option><option value="180">180g</option><option value="200">200g</option>
+        </select>
+      </label><br>
+      <label>Nombre:
+        <input type="number" class="nombre" min="1" value="1" onchange="updatePrice(this)">
+      </label><br>
+      <label>Couleur:
+        <select class="couleur">
+          <option value="Vert Camo">Vert Camo</option><option value="Sable Foncé">Sable Foncé</option><option value="Sable Claire">Sable Claire</option><option value="Sable Vert">Sable Vert</option><option value="Noir">Noir</option><option value="Noir Bleuter">Noir Bleuter</option><option value="Pierre">Pierre</option><option value="Vert Herbie">Vert Herbie</option><option value="Marron">Marron</option>
+        </select>
+      </label><br>
+      <label>Aspect:
+        <select class="aspect">
+          <option value="Lisse">Lisse</option><option value="Granuleux">Granuleux</option>
+        </select>
+      </label>
+    
+      <p>Prix: <span class="price">1.00</span> €</p>
+      <button onclick="addToCart(this, {&quot;id&quot;:16,&quot;name&quot;:&quot;Bombe&quot;,&quot;image&quot;:&quot;img/plombs/Bombe.jpg&quot;,&quot;options&quot;:{&quot;poids&quot;:[120,150,180,200],&quot;couleur&quot;:[&quot;Vert Camo&quot;,&quot;Sable Foncé&quot;,&quot;Sable Claire&quot;,&quot;Sable Vert&quot;,&quot;Noir&quot;,&quot;Noir Bleuter&quot;,&quot;Pierre&quot;,&quot;Vert Herbie&quot;,&quot;Marron&quot;],&quot;aspect&quot;:[&quot;Lisse&quot;,&quot;Granuleux&quot;]},&quot;prixParPoids&quot;:{&quot;120&quot;:1,&quot;150&quot;:1.4,&quot;180&quot;:1.6,&quot;200&quot;:1.7}})">Ajouter</button>
+    </div><div class="product" data-prix-par-poids="{&quot;40&quot;:1,&quot;50&quot;:1,&quot;70&quot;:1}">
+      <img src="img/plombs/Backlead.jpg" width="200">
+      <h3>BackLead</h3>
+      
+      <label>Poids:
+        <select class="poids" onchange="updatePrice(this)">
+          <option value="40">40g</option><option value="50">50g</option><option value="70">70g</option>
+        </select>
+      </label><br>
+      <label>Nombre:
+        <input type="number" class="nombre" min="1" value="1" onchange="updatePrice(this)">
+      </label><br>
+      <label>Couleur:
+        <select class="couleur">
+          <option value="Vert Camo">Vert Camo</option><option value="Sable Foncé">Sable Foncé</option><option value="Sable Claire">Sable Claire</option><option value="Sable Vert">Sable Vert</option><option value="Noir">Noir</option><option value="Noir Bleuter">Noir Bleuter</option><option value="Pierre">Pierre</option><option value="Vert Herbie">Vert Herbie</option><option value="Marron">Marron</option>
+        </select>
+      </label><br>
+      <label>Aspect:
+        <select class="aspect">
+          <option value="Lisse">Lisse</option><option value="Granuleux">Granuleux</option>
+        </select>
+      </label>
+    
+      <p>Prix: <span class="price">1.00</span> €</p>
+      <button onclick="addToCart(this, {&quot;id&quot;:17,&quot;name&quot;:&quot;BackLead&quot;,&quot;image&quot;:&quot;img/plombs/Backlead.jpg&quot;,&quot;options&quot;:{&quot;poids&quot;:[40,50,70],&quot;couleur&quot;:[&quot;Vert Camo&quot;,&quot;Sable Foncé&quot;,&quot;Sable Claire&quot;,&quot;Sable Vert&quot;,&quot;Noir&quot;,&quot;Noir Bleuter&quot;,&quot;Pierre&quot;,&quot;Vert Herbie&quot;,&quot;Marron&quot;],&quot;aspect&quot;:[&quot;Lisse&quot;,&quot;Granuleux&quot;]},&quot;prixParPoids&quot;:{&quot;40&quot;:1,&quot;50&quot;:1,&quot;70&quot;:1}})">Ajouter</button>
+    </div><div class="product" data-prix-par-poids="{&quot;60&quot;:1,&quot;70&quot;:1,&quot;80&quot;:1,&quot;90&quot;:1,&quot;100&quot;:1,&quot;120&quot;:1,&quot;140&quot;:1.2}">
+      <img src="img/plombs/Cube.jpg" width="200">
+      <h3>Cube</h3>
+      
+      <label>Poids:
+        <select class="poids" onchange="updatePrice(this)">
+          <option value="60">60g</option><option value="70">70g</option><option value="80">80g</option><option value="90">90g</option><option value="100">100g</option><option value="120">120g</option><option value="140">140g</option>
+        </select>
+      </label><br>
+      <label>Nombre:
+        <input type="number" class="nombre" min="1" value="1" onchange="updatePrice(this)">
+      </label><br>
+      <label>Couleur:
+        <select class="couleur">
+          <option value="Vert Camo">Vert Camo</option><option value="Sable Foncé">Sable Foncé</option><option value="Sable Claire">Sable Claire</option><option value="Sable Vert">Sable Vert</option><option value="Noir">Noir</option><option value="Noir Bleuter">Noir Bleuter</option><option value="Pierre">Pierre</option><option value="Vert Herbie">Vert Herbie</option><option value="Marron">Marron</option>
+        </select>
+      </label><br>
+      <label>Aspect:
+        <select class="aspect">
+          <option value="Lisse">Lisse</option><option value="Granuleux">Granuleux</option>
+        </select>
+      </label>
+    
+      <p>Prix: <span class="price">1.00</span> €</p>
+      <button onclick="addToCart(this, {&quot;id&quot;:18,&quot;name&quot;:&quot;Cube&quot;,&quot;image&quot;:&quot;img/plombs/Cube.jpg&quot;,&quot;options&quot;:{&quot;poids&quot;:[60,70,80,90,100,120,140],&quot;couleur&quot;:[&quot;Vert Camo&quot;,&quot;Sable Foncé&quot;,&quot;Sable Claire&quot;,&quot;Sable Vert&quot;,&quot;Noir&quot;,&quot;Noir Bleuter&quot;,&quot;Pierre&quot;,&quot;Vert Herbie&quot;,&quot;Marron&quot;],&quot;aspect&quot;:[&quot;Lisse&quot;,&quot;Granuleux&quot;]},&quot;prixParPoids&quot;:{&quot;60&quot;:1,&quot;70&quot;:1,&quot;80&quot;:1,&quot;90&quot;:1,&quot;100&quot;:1,&quot;120&quot;:1,&quot;140&quot;:1.2}})">Ajouter</button>
+    </div><div class="product" data-prix-par-poids="{&quot;70&quot;:1,&quot;90&quot;:1}">
+      <img src="img/plombs/squelette.png" width="200">
+      <h3>Squelette</h3>
+      
+      <label>Poids:
+        <select class="poids" onchange="updatePrice(this)">
+          <option value="70">70g</option><option value="90">90g</option>
+        </select>
+      </label><br>
+      <label>Nombre:
+        <input type="number" class="nombre" min="1" value="1" onchange="updatePrice(this)">
+      </label><br>
+      <label>Couleur:
+        <select class="couleur">
+          <option value="Vert Camo">Vert Camo</option><option value="Sable Foncé">Sable Foncé</option><option value="Sable Claire">Sable Claire</option><option value="Sable Vert">Sable Vert</option><option value="Noir">Noir</option><option value="Noir Bleuter">Noir Bleuter</option><option value="Pierre">Pierre</option><option value="Vert Herbie">Vert Herbie</option><option value="Marron">Marron</option>
+        </select>
+      </label><br>
+      <label>Aspect:
+        <select class="aspect">
+          <option value="Lisse">Lisse</option><option value="Granuleux">Granuleux</option>
+        </select>
+      </label>
+    
+      <p>Prix: <span class="price">1.00</span> €</p>
+      <button onclick="addToCart(this, {&quot;id&quot;:19,&quot;name&quot;:&quot;Squelette&quot;,&quot;image&quot;:&quot;img/plombs/squelette.png&quot;,&quot;options&quot;:{&quot;poids&quot;:[70,90],&quot;couleur&quot;:[&quot;Vert Camo&quot;,&quot;Sable Foncé&quot;,&quot;Sable Claire&quot;,&quot;Sable Vert&quot;,&quot;Noir&quot;,&quot;Noir Bleuter&quot;,&quot;Pierre&quot;,&quot;Vert Herbie&quot;,&quot;Marron&quot;],&quot;aspect&quot;:[&quot;Lisse&quot;,&quot;Granuleux&quot;]},&quot;prixParPoids&quot;:{&quot;70&quot;:1,&quot;90&quot;:1}})">Ajouter</button>
+    </div><div class="product" data-prix-par-poids="{&quot;30&quot;:1,&quot;50&quot;:1,&quot;60&quot;:1,&quot;80&quot;:1}">
+      <img src="img/plombs/Poire plat.jpg" width="200">
+      <h3>Poire Plat</h3>
+      
+      <label>Poids:
+        <select class="poids" onchange="updatePrice(this)">
+          <option value="30">30g</option><option value="50">50g</option><option value="60">60g</option><option value="80">80g</option>
+        </select>
+      </label><br>
+      <label>Nombre:
+        <input type="number" class="nombre" min="1" value="1" onchange="updatePrice(this)">
+      </label><br>
+      <label>Couleur:
+        <select class="couleur">
+          <option value="Vert Camo">Vert Camo</option><option value="Sable Foncé">Sable Foncé</option><option value="Sable Claire">Sable Claire</option><option value="Sable Vert">Sable Vert</option><option value="Noir">Noir</option><option value="Noir Bleuter">Noir Bleuter</option><option value="Pierre">Pierre</option><option value="Vert Herbie">Vert Herbie</option><option value="Marron">Marron</option>
+        </select>
+      </label><br>
+      <label>Aspect:
+        <select class="aspect">
+          <option value="Lisse">Lisse</option><option value="Granuleux">Granuleux</option>
+        </select>
+      </label>
+    
+      <p>Prix: <span class="price">1.00</span> €</p>
+      <button onclick="addToCart(this, {&quot;id&quot;:20,&quot;name&quot;:&quot;Poire Plat&quot;,&quot;image&quot;:&quot;img/plombs/Poire plat.jpg&quot;,&quot;options&quot;:{&quot;poids&quot;:[30,50,60,80],&quot;couleur&quot;:[&quot;Vert Camo&quot;,&quot;Sable Foncé&quot;,&quot;Sable Claire&quot;,&quot;Sable Vert&quot;,&quot;Noir&quot;,&quot;Noir Bleuter&quot;,&quot;Pierre&quot;,&quot;Vert Herbie&quot;,&quot;Marron&quot;],&quot;aspect&quot;:[&quot;Lisse&quot;,&quot;Granuleux&quot;]},&quot;prixParPoids&quot;:{&quot;30&quot;:1,&quot;50&quot;:1,&quot;60&quot;:1,&quot;80&quot;:1}})">Ajouter</button>
+    </div><div class="product" data-prix-par-poids="{&quot;80&quot;:1,&quot;108&quot;:1,&quot;120&quot;:1}">
+      <img src="img/plombs/Devrilleur.jpg" width="200">
+      <h3>Devrilleur</h3>
+      
+      <label>Poids:
+        <select class="poids" onchange="updatePrice(this)">
+          <option value="80">80g</option><option value="108">108g</option><option value="120">120g</option>
+        </select>
+      </label><br>
+      <label>Nombre:
+        <input type="number" class="nombre" min="1" value="1" onchange="updatePrice(this)">
+      </label><br>
+      <label>Couleur:
+        <select class="couleur">
+          <option value="Vert Camo">Vert Camo</option><option value="Sable Foncé">Sable Foncé</option><option value="Sable Claire">Sable Claire</option><option value="Sable Vert">Sable Vert</option><option value="Noir">Noir</option><option value="Noir Bleuter">Noir Bleuter</option><option value="Pierre">Pierre</option><option value="Vert Herbie">Vert Herbie</option><option value="Marron">Marron</option>
+        </select>
+      </label><br>
+      <label>Aspect:
+        <select class="aspect">
+          <option value="Lisse">Lisse</option><option value="Granuleux">Granuleux</option>
+        </select>
+      </label>
+    
+      <p>Prix: <span class="price">1.00</span> €</p>
+      <button onclick="addToCart(this, {&quot;id&quot;:21,&quot;name&quot;:&quot;Devrilleur&quot;,&quot;image&quot;:&quot;img/plombs/Devrilleur.jpg&quot;,&quot;options&quot;:{&quot;poids&quot;:[80,108,120],&quot;couleur&quot;:[&quot;Vert Camo&quot;,&quot;Sable Foncé&quot;,&quot;Sable Claire&quot;,&quot;Sable Vert&quot;,&quot;Noir&quot;,&quot;Noir Bleuter&quot;,&quot;Pierre&quot;,&quot;Vert Herbie&quot;,&quot;Marron&quot;],&quot;aspect&quot;:[&quot;Lisse&quot;,&quot;Granuleux&quot;]},&quot;prixParPoids&quot;:{&quot;80&quot;:1,&quot;108&quot;:1,&quot;120&quot;:1}})">Ajouter</button>
+    </div><div class="product" data-prix-par-poids="{&quot;80&quot;:1,&quot;100&quot;:1,&quot;120&quot;:1,&quot;140&quot;:1.2}">
+      <img src="img/plombs/Trilobe.jpg" width="200">
+      <h3>Trilobe</h3>
+      
+      <label>Poids:
+        <select class="poids" onchange="updatePrice(this)">
+          <option value="80">80g</option><option value="100">100g</option><option value="120">120g</option><option value="140">140g</option>
+        </select>
+      </label><br>
+      <label>Nombre:
+        <input type="number" class="nombre" min="1" value="1" onchange="updatePrice(this)">
+      </label><br>
+      <label>Couleur:
+        <select class="couleur">
+          <option value="Vert Camo">Vert Camo</option><option value="Sable Foncé">Sable Foncé</option><option value="Sable Claire">Sable Claire</option><option value="Sable Vert">Sable Vert</option><option value="Noir">Noir</option><option value="Noir Bleuter">Noir Bleuter</option><option value="Pierre">Pierre</option><option value="Vert Herbie">Vert Herbie</option><option value="Marron">Marron</option>
+        </select>
+      </label><br>
+      <label>Aspect:
+        <select class="aspect">
+          <option value="Lisse">Lisse</option><option value="Granuleux">Granuleux</option>
+        </select>
+      </label>
+    
+      <p>Prix: <span class="price">1.00</span> €</p>
+      <button onclick="addToCart(this, {&quot;id&quot;:22,&quot;name&quot;:&quot;Trilobe&quot;,&quot;image&quot;:&quot;img/plombs/Trilobe.jpg&quot;,&quot;options&quot;:{&quot;poids&quot;:[80,100,120,140],&quot;couleur&quot;:[&quot;Vert Camo&quot;,&quot;Sable Foncé&quot;,&quot;Sable Claire&quot;,&quot;Sable Vert&quot;,&quot;Noir&quot;,&quot;Noir Bleuter&quot;,&quot;Pierre&quot;,&quot;Vert Herbie&quot;,&quot;Marron&quot;],&quot;aspect&quot;:[&quot;Lisse&quot;,&quot;Granuleux&quot;]},&quot;prixParPoids&quot;:{&quot;80&quot;:1,&quot;100&quot;:1,&quot;120&quot;:1,&quot;140&quot;:1.2}})">Ajouter</button>
+    </div><div class="product" data-prix-par-poids="{&quot;80&quot;:1,&quot;100&quot;:1,&quot;120&quot;:1,&quot;140&quot;:1.2}">
+      <img src="img/plombs/Goutte d eau.jpg" width="200">
+      <h3>Goutte d eau</h3>
+      
+      <label>Poids:
+        <select class="poids" onchange="updatePrice(this)">
+          <option value="80">80g</option><option value="100">100g</option><option value="120">120g</option><option value="140">140g</option>
+        </select>
+      </label><br>
+      <label>Nombre:
+        <input type="number" class="nombre" min="1" value="1" onchange="updatePrice(this)">
+      </label><br>
+      <label>Couleur:
+        <select class="couleur">
+          <option value="Vert Camo">Vert Camo</option><option value="Sable Foncé">Sable Foncé</option><option value="Sable Claire">Sable Claire</option><option value="Sable Vert">Sable Vert</option><option value="Noir">Noir</option><option value="Noir Bleuter">Noir Bleuter</option><option value="Pierre">Pierre</option><option value="Vert Herbie">Vert Herbie</option><option value="Marron">Marron</option>
+        </select>
+      </label><br>
+      <label>Aspect:
+        <select class="aspect">
+          <option value="Lisse">Lisse</option><option value="Granuleux">Granuleux</option>
+        </select>
+      </label>
+    
+      <p>Prix: <span class="price">1.00</span> €</p>
+      <button onclick="addToCart(this, {&quot;id&quot;:23,&quot;name&quot;:&quot;Goutte d eau&quot;,&quot;image&quot;:&quot;img/plombs/Goutte d eau.jpg&quot;,&quot;options&quot;:{&quot;poids&quot;:[80,100,120,140],&quot;couleur&quot;:[&quot;Vert Camo&quot;,&quot;Sable Foncé&quot;,&quot;Sable Claire&quot;,&quot;Sable Vert&quot;,&quot;Noir&quot;,&quot;Noir Bleuter&quot;,&quot;Pierre&quot;,&quot;Vert Herbie&quot;,&quot;Marron&quot;],&quot;aspect&quot;:[&quot;Lisse&quot;,&quot;Granuleux&quot;]},&quot;prixParPoids&quot;:{&quot;80&quot;:1,&quot;100&quot;:1,&quot;120&quot;:1,&quot;140&quot;:1.2}})">Ajouter</button>
+    </div></main>
+
+<!-- Panier -->
+<aside id="cart" style="display: block;">
+  <h2>🛒 Votre panier</h2>
+  <ul id="cart-items"><li>
+      1x Branche - 85g - Vert Camo - Lisse
+      <strong>1.00 €</strong>
+      <button onclick="removeFromCart(0)">❌</button>
+    </li></ul>
+  <button class="commande" onclick="sendOrder()">📩 Commander par email</button>
+</aside>
+
+<!-- Admin panel -->
+<div id="admin-panel">
+  <h2>🛠️ Panneau Admin</h2>
+  <label>Nom de l'article :
+    <input type="text" id="admin-name">
+  </label><br>
+  <label>Prix (€) :
+    <input type="number" id="admin-price" step="0.01" min="0">
+  </label><br>
+  <label>Aspect :
+    <select id="admin-color">
+      <option value="Vert">Vert</option>
+      <option value="Marron">Marron</option>
+      <option value="Noir">Noir</option>
+      <option value="Camouflage">Camouflage</option>
+    </select>
+  </label><br>
+  <label>Photo :
+    <input type="file" id="admin-photo" accept="image/*">
+  </label><br>
+  <button onclick="addProduct()">➕ Ajouter l'article</button>
+  <button onclick="clearProducts()">🗑️ Supprimer tous les articles</button>
+</div>
+
+<!-- Panier (caché par défaut) -->
+<aside id="cart">
+  <ul id="cart-items"></ul>
+  <button class="commande" onclick="sendOrder()">📩 Commander par email</button>
+</aside>
+
+<div class="faq-section">
+  <h2>FAQ – Questions fréquentes</h2>
+  <div class="faq-item">
+    <div class="faq-question">Quels sont les délais de livraison ?</div>
+    <div class="faq-answer">Nos délais de livraison varient entre 3 à 7 jours ouvrés selon votre localisation.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">Puis-je personnaliser ma commande ?</div>
+    <div class="faq-answer">Oui, vous pouvez choisir le poids, la couleur, l’aspect et la quantité dans les options du produit.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">Comment puis-je payer ma commande ?</div>
+    <div class="faq-answer">Les paiements se font par Leboncoin paiement sécurisé.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">Puis-je suivre ma commande ?</div>
+    <div class="faq-answer">Une fois votre commande envoyée, vous recevrez un email avec le lien de suivi.</div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 LDcarpe. Tous droits réservés.</p>
+</footer>
+
+<script src="admin.js"></script>
+<script src="faq.js"></script>
+<script src="js.js"></script>
+<script src="panier.js"></script>
+
+
+</body></html>
