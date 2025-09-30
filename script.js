@@ -19,7 +19,7 @@ let products = [
     colors: ["Vert cammo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
     weights: ["100"],
     quantities: ["1", "2", "3", "4", "5", "10"],
-    aspects: ["Lisse", "Ganuleux"]
+    aspects: ["Lisse", "Granuleux"]
   },
   {
     name: "Branche",
@@ -29,7 +29,7 @@ let products = [
     colors: ["Vert cammo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
     weights: ["85","115"],
     quantities: ["1", "2", "3", "4", "5", "10"],
-    aspects: ["Lisse", "Ganuleux"]
+    aspects: ["Lisse", "Granuleux"]
   },
   {
     name: "Moule",
@@ -90,8 +90,7 @@ let products = [
     weights: ["40","50","60","90","100","110","120","130","150","170","210","230"],
     quantities: ["1", "2", "3", "4", "5", "10"],
     aspects: ["Lisse", "Ganuleux"]
-  },
-  // Ajoute tes autres produits ici...
+  }
 ];
 
 // --- CALCUL DU PRIX SELON POIDS ---
@@ -100,18 +99,19 @@ function getPriceByWeight(weightStr, basePrice) {
   let grams = parseInt(weightStr.replace(/[^\d]/g, ""));
   if (isNaN(grams)) return basePrice;
 
-  if (grams >= 0 && grams <= 120) return 1.00;
-  else if (grams === 140) return 1.20;
-  else if (grams === 145) return 1.30;
-  else if (grams === 150) return 1.40;
-  else if (grams === 170) return 1.50;
-  else if (grams === 180) return 1.60;
-  else if (grams === 200) return 1.70;
-  else if (grams === 210) return 1.80;
-  else if (grams === 230) return 1.90;
-  else if (grams === 300) return 2.50;
-  else if (grams === 350) return 2.70;
-  else return basePrice;
+  if (grams <= 120) return 1.00;
+  if (grams === 140) return 1.20;
+  if (grams === 145) return 1.30;
+  if (grams === 150) return 1.40;
+  if (grams === 170) return 1.50;
+  if (grams === 180) return 1.60;
+  if (grams === 200) return 1.70;
+  if (grams === 210) return 1.80;
+  if (grams === 230) return 1.90;
+  if (grams === 300) return 2.50;
+  if (grams === 350) return 2.70;
+
+  return basePrice;
 }
 
 // --- RENDU DES PRODUITS ---
@@ -136,50 +136,103 @@ function renderProducts() {
 
     const selects = [];
 
-    // Fonction pour créer un select avec label
-    const createSelectWithLabel = (labelText, optionsArray, type) => {
+    // --- Options Couleur ---
+    if (p.colors.length) {
       const wrapper = document.createElement("div");
-      wrapper.style.display = "flex";
-      wrapper.style.alignItems = "center";
-      wrapper.style.gap = "0.5rem";
-      wrapper.style.margin = "0.3rem 0";
+      wrapper.className = "product-option";
 
-      const label = document.createElement("span");
-      label.textContent = labelText + ":";
+      const label = document.createElement("label");
+      label.textContent = "Couleur :";
+      wrapper.appendChild(label);
 
       const sel = document.createElement("select");
-      optionsArray.forEach(optText => {
+      p.colors.forEach(c => {
         const opt = document.createElement("option");
-        opt.textContent = optText;
+        opt.textContent = c;
         sel.appendChild(opt);
       });
-
-      wrapper.appendChild(label);
       wrapper.appendChild(sel);
-      selects.push({ type: type, sel });
+      selects.push({ type: "Couleur", sel });
       card.appendChild(wrapper);
-
-      return sel;
     }
 
-    if (p.colors.length) createSelectWithLabel("Couleur", p.colors, "Couleur");
+    // --- Options Poids ---
     if (p.weights.length) {
-      const weightSelect = createSelectWithLabel("Poids", p.weights, "Poids");
-      weightSelect.addEventListener("change", () => {
-        let finalPrice = getPriceByWeight(weightSelect.value, parseFloat(p.price));
+      const wrapper = document.createElement("div");
+      wrapper.className = "product-option";
+
+      const label = document.createElement("label");
+      label.textContent = "Poids :";
+      wrapper.appendChild(label);
+
+      const sel = document.createElement("select");
+      p.weights.forEach(w => {
+        const opt = document.createElement("option");
+        opt.textContent = w;
+        sel.appendChild(opt);
+      });
+      wrapper.appendChild(sel);
+      selects.push({ type: "Poids", sel });
+      card.appendChild(wrapper);
+
+      sel.addEventListener("change", () => {
+        let finalPrice = getPriceByWeight(sel.value, parseFloat(p.price));
         priceEl.textContent = `Prix : ${finalPrice.toFixed(2).replace(".", ",")} €`;
       });
     }
-    if (p.quantities.length) createSelectWithLabel("Nombre", p.quantities, "Nombre");
-    if (p.aspects.length) createSelectWithLabel("Aspect", p.aspects, "Aspect");
 
+    // --- Options Quantité ---
+    if (p.quantities.length) {
+      const wrapper = document.createElement("div");
+      wrapper.className = "product-option";
+
+      const label = document.createElement("label");
+      label.textContent = "Nombre :";
+      wrapper.appendChild(label);
+
+      const sel = document.createElement("select");
+      p.quantities.forEach(q => {
+        const opt = document.createElement("option");
+        opt.textContent = q;
+        sel.appendChild(opt);
+      });
+      wrapper.appendChild(sel);
+      selects.push({ type: "Nombre", sel });
+      card.appendChild(wrapper);
+    }
+
+    // --- Options Aspect ---
+    if (p.aspects.length) {
+      const wrapper = document.createElement("div");
+      wrapper.className = "product-option";
+
+      const label = document.createElement("label");
+      label.textContent = "Aspect :";
+      wrapper.appendChild(label);
+
+      const sel = document.createElement("select");
+      p.aspects.forEach(a => {
+        const opt = document.createElement("option");
+        opt.textContent = a;
+        sel.appendChild(opt);
+      });
+      wrapper.appendChild(sel);
+      selects.push({ type: "Aspect", sel });
+      card.appendChild(wrapper);
+    }
+
+    // --- Bouton Ajouter au Panier ---
     const btn = document.createElement("button");
     btn.textContent = "Ajouter au panier";
     btn.addEventListener("click", () => {
       let selectedWeight = selects.find(s => s.type === "Poids")?.sel.value || "";
       let finalPrice = getPriceByWeight(selectedWeight, parseFloat(p.price));
+
       const chosen = selects.map(s => `${s.type}: ${s.sel.value}`).join(", ");
       addToCart({ name: p.name, price: finalPrice, options: chosen });
+
+      // ❌ Ne plus ouvrir automatiquement le panier
+      // cartPanel.classList.remove("hidden");
     });
 
     card.appendChild(img);
@@ -192,7 +245,7 @@ function renderProducts() {
   });
 }
 
-// --- PANIER ---
+// --- GESTION DU PANIER ---
 function addToCart(item) {
   cart.push(item);
   updateCart();
@@ -209,16 +262,27 @@ function updateCart() {
     cartItems.appendChild(li);
   });
 
-  total += cart.length > 0 ? 1 : 0;
-  cartTotal.textContent = cart.length > 0 
-    ? `Total (avec 1€ frais) : ${total.toFixed(2).replace(".", ",")} €` 
+  total += cart.length > 0 ? 1 : 0; // frais fixe 1€
+  cartTotal.textContent = cart.length > 0
+    ? `Total (avec 1€ frais) : ${total.toFixed(2).replace(".", ",")} €`
     : "Votre panier est vide";
 
   cartCount.textContent = cart.length;
 }
 
 // --- OUVRIR / FERMER PANIER ---
-cartIcon.addEventListener("click", () => cartPanel.classList.toggle("hidden"));
+cartIcon.addEventListener("click", () => {
+  cartPanel.classList.toggle("hidden");
+});
+
+// --- BOUTON FERMER ---
+const closeBtn = document.createElement("button");
+closeBtn.textContent = "❌ Fermer";
+closeBtn.className = "close-cart";
+closeBtn.addEventListener("click", () => {
+  cartPanel.classList.add("hidden");
+});
+cartPanel.prepend(closeBtn);
 
 // --- COMMANDER PAR EMAIL ---
 orderEmailBtn.addEventListener("click", () => {
