@@ -16,7 +16,7 @@ let products = [
     description: "",
     price: 1.00,
     image: "boutique plombs/sondeur.jpg",
-    colors: ["Vert cammo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["100"],
     quantities: ["1", "2", "3", "4", "5", "10"],
     aspects: ["Lisse", "Ganuleux"]
@@ -26,7 +26,7 @@ let products = [
     description: "",
     price: 1.00,
     image: "boutique plombs/Branche.jpg",
-    colors: ["Vert cammo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Pierre", "Vert herbié", "Marron"],
+    colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté", "Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["85","115"],
     quantities: ["1", "2", "3", "4", "5", "10"],
     aspects: ["Lisse", "Ganuleux"]
@@ -187,3 +187,4 @@ orderEmailBtn.addEventListener("click", () => {
 
 // --- INIT ---
 renderProducts();
+
