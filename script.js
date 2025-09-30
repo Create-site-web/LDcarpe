@@ -455,8 +455,9 @@ orderEmailBtn.addEventListener("click", () => {
   let total = cart.reduce((sum, i) => sum + i.price, 0) + 1;
   body += `%0D%0A---%0D%0ATotal avec frais : ${total.toFixed(2).replace(".", ",")} €`;
 
-  window.location.href = `mailto:?subject=Commande&body=${body}`;
+  window.location.href = `mailto:ldcarpepro@gmail.com?subject=Commande&body=${body}`;
 });
 
 // --- INIT ---
 renderProducts();
+
