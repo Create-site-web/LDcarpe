@@ -221,6 +221,13 @@ button.danger:hover {
   background: darkred;
 }
 
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 15px 10px;
+  margin-top: 40px;
+}
 
 /* Responsive */
 @media (max-width: 600px) {
