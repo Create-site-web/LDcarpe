@@ -18,7 +18,7 @@ let products = [
     image: "boutique plombs/sondeur.jpg",
     colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["100"],
-    quantities: ["1", "2", "3", "4", "5", "10"],
+    quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
     aspects: ["Lisse", "Granuleux"]
   },
   {
@@ -28,7 +28,7 @@ let products = [
     image: "boutique plombs/Branche.jpg",
     colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["85","115"],
-    quantities: ["1", "2", "3", "4", "5", "10"],
+       quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
     aspects: ["Lisse", "Granuleux"]
   },
   {
@@ -38,7 +38,7 @@ let products = [
     image: "boutique plombs/Moule.jpg",
     colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["70","90"],
-    quantities: ["1", "2", "3", "4", "5", "10"],
+       quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
     aspects: ["Lisse", "Ganuleux"]
   },
   {
@@ -48,7 +48,7 @@ let products = [
     image: "boutique plombs/Triface.jpg",
     colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["80","90","100","110"],
-    quantities: ["1", "2", "3", "4", "5", "10"],
+       quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
     aspects: ["Lisse", "Ganuleux"]
   },
   {
@@ -58,7 +58,7 @@ let products = [
     image: "boutique plombs/Distance.jpg",
     colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["40","50","60","70","80","90","100","110","120","130"],
-    quantities: ["1", "2", "3", "4", "5", "10"],
+       quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
     aspects: ["Lisse", "Ganuleux"]
   },
   {
@@ -68,7 +68,7 @@ let products = [
     image: "boutique plombs/Plomb PLat.jpg",
     colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["70","90","120","140","200"],
-    quantities: ["1", "2", "3", "4", "5", "10"],
+       quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
     aspects: ["Lisse", "Ganuleux"]
   },
   {
@@ -78,7 +78,7 @@ let products = [
     image: "boutique plombs/Grip aillettes.jpg",
     colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["55","75","90","110"],
-    quantities: ["1", "2", "3", "4", "5", "10"],
+       quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
     aspects: ["Lisse", "Ganuleux"]
   },
   {
@@ -88,7 +88,7 @@ let products = [
     image: "boutique plombs/Grippe troué.jpg",
     colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["40","50","60","90","100","110","120","130","150","170","210","230"],
-    quantities: ["1", "2", "3", "4", "5", "10"],
+       quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
     aspects: ["Lisse", "Ganuleux"]
   },
   {
@@ -98,7 +98,7 @@ let products = [
     image: "boutique plombs/Losange.jpg",
     colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["20","40","60","80"],
-    quantities: ["1", "2", "3", "4", "5", "10"],
+       quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
     aspects: ["Lisse", "Ganuleux"]
   },
   {
@@ -108,7 +108,7 @@ let products = [
     image: "boutique plombs/Boule.jpg",
     colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["40","60","80"],
-    quantities: ["1", "2", "3", "4", "5", "10"],
+       quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
     aspects: ["Lisse", "Ganuleux"]
   },
   {
@@ -118,7 +118,7 @@ let products = [
     image: "boutique plombs/Grappa.jpg",
     colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["70","80","90","110","300","350"],
-    quantities: ["1", "2", "3", "4", "5", "10"],
+       quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
     aspects: ["Lisse", "Ganuleux"]
   },
   {
@@ -128,7 +128,7 @@ let products = [
     image: "boutique plombs/Backlead.jpg",
     colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["70","50","70"],
-    quantities: ["1", "2", "3", "4", "5", "10"],
+       quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
     aspects: ["Lisse", "Ganuleux"]
   },
   {
@@ -138,7 +138,7 @@ let products = [
     image: "boutique plombs/Cube.jpg",
     colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["60","70","80","90","100","120","140"],
-    quantities: ["1", "2", "3", "4", "5", "10"],
+       quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
     aspects: ["Lisse", "Ganuleux"]
   },
   {
@@ -148,7 +148,7 @@ let products = [
     image: "boutique plombs/squelette.png",
     colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["70","90"],
-    quantities: ["1", "2", "3", "4", "5", "10"],
+       quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
     aspects: ["Lisse", "Ganuleux"]
   },
   {
@@ -158,7 +158,7 @@ let products = [
     image: "boutique plombs/Poire plat.jpg",
     colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["30","50","60","80"],
-    quantities: ["1", "2", "3", "4", "5", "10"],
+       quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
     aspects: ["Lisse", "Ganuleux"]
   },
   {
@@ -168,7 +168,7 @@ let products = [
     image: "boutique plombs/Goutte d eau.jpg",
     colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["20","30","40","50","60","80","110","140"],
-    quantities: ["1", "2", "3", "4", "5", "10"],
+       quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
     aspects: ["Lisse", "Ganuleux"]
   },
   {
@@ -178,7 +178,7 @@ let products = [
     image: "boutique plombs/Devrilleur.jpg",
     colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["80","108","120"],
-    quantities: ["1", "2", "3", "4", "5", "10"],
+       quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
     aspects: ["Lisse", "Ganuleux"]
   },
   {
@@ -188,7 +188,7 @@ let products = [
     image: "boutique plombs/Trilobe.jpg",
     colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["80","100","120","140"],
-    quantities: ["1", "2", "3", "4", "5", "10"],
+       quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
     aspects: ["Lisse", "Ganuleux"]
   },
   {
@@ -198,7 +198,7 @@ let products = [
     image: "boutique plombs/Bombe.jpg",
     colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["120","150","180","200"],
-    quantities: ["1", "2", "3", "4", "5", "10"],
+       quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
     aspects: ["Lisse", "Ganuleux"]
   },
   {
@@ -208,7 +208,7 @@ let products = [
     image: "boutique plombs/Poire inline.jpg",
     colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["60","80","90"],
-    quantities: ["1", "2", "3", "4", "5", "10"],
+       quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
     aspects: ["Lisse", "Ganuleux"]
   },
   {
@@ -218,7 +218,7 @@ let products = [
     image: "boutique plombs/Grappa inline.jpg",
     colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["65","85","95"],
-    quantities: ["1", "2", "3", "4", "5", "10"],
+       quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
     aspects: ["Lisse", "Ganuleux"]
   },
   {
@@ -228,7 +228,7 @@ let products = [
     image: "boutique plombs/Triface inline.jpg",
     colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["115","125","135"],
-    quantities: ["1", "2", "3", "4", "5", "10"],
+       quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
     aspects: ["Lisse", "Ganuleux"]
   },
   {
@@ -238,7 +238,7 @@ let products = [
     image: "boutique plombs/Distanceinline.jpg",
     colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["70","80","90"],
-    quantities: ["1", "2", "3", "4", "5", "10"],
+       quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
     aspects: ["Lisse", "Ganuleux"]
   },
   {
@@ -248,7 +248,7 @@ let products = [
     image: "boutique plombs/Triangleinline.jpg",
     colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
     weights: ["40","50","60"],
-    quantities: ["1", "2", "3", "4", "5", "10"],
+       quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
     aspects: ["Lisse", "Ganuleux"]
   },
 ];
@@ -388,11 +388,11 @@ function renderProducts() {
       let selectedWeight = selects.find(s => s.type === "Poids")?.sel.value || "";
       let finalPrice = getPriceByWeight(selectedWeight, parseFloat(p.price));
 
-      const chosen = selects.map(s => `${s.type}: ${s.sel.value}`).join(", ");
-      addToCart({ name: p.name, price: finalPrice, options: chosen });
+      let selectedQuantity = parseInt(selects.find(s => s.type === "Nombre")?.sel.value || "1");
+      let totalPrice = finalPrice * selectedQuantity;
 
-      // ❌ Ne plus ouvrir automatiquement le panier
-      // cartPanel.classList.remove("hidden");
+      const chosen = selects.map(s => `${s.type}: ${s.sel.value}`).join(", ");
+      addToCart({ name: p.name, price: totalPrice, options: chosen, quantity: selectedQuantity });
     });
 
     card.appendChild(img);
@@ -411,15 +411,34 @@ function addToCart(item) {
   updateCart();
 }
 
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  updateCart();
+}
+
+function clearCart() {
+  cart = [];
+  updateCart();
+}
+
 function updateCart() {
   cartItems.innerHTML = "";
   let total = 0;
 
-  cart.forEach(item => {
+  cart.forEach((item, index) => {
     const li = document.createElement("li");
-    li.textContent = `${item.name} (${item.options}) - ${item.price.toFixed(2).replace(".", ",")} €`;
-    total += item.price;
+    li.textContent = `${item.name} (${item.options}) x${item.quantity} - ${item.price.toFixed(2).replace(".", ",")} €`;
+
+    // bouton suppression
+    const removeBtn = document.createElement("button");
+    removeBtn.textContent = "❌";
+    removeBtn.style.marginLeft = "10px";
+    removeBtn.addEventListener("click", () => removeFromCart(index));
+
+    li.appendChild(removeBtn);
     cartItems.appendChild(li);
+
+    total += item.price;
   });
 
   total += cart.length > 0 ? 1 : 0; // frais fixe 1€
@@ -444,6 +463,13 @@ closeBtn.addEventListener("click", () => {
 });
 cartPanel.prepend(closeBtn);
 
+// --- BOUTON VIDER LE PANIER ---
+const clearBtn = document.createElement("button");
+clearBtn.textContent = "🗑️ Vider le panier";
+clearBtn.className = "clear-cart";
+clearBtn.addEventListener("click", clearCart);
+cartPanel.appendChild(clearBtn);
+
 // --- COMMANDER PAR EMAIL ---
 orderEmailBtn.addEventListener("click", () => {
   if (cart.length === 0) {
@@ -451,13 +477,15 @@ orderEmailBtn.addEventListener("click", () => {
     return;
   }
 
-  let body = cart.map(item => `${item.name} (${item.options}) - ${item.price.toFixed(2).replace(".", ",")} €`).join("%0D%0A");
+  let body = cart.map(item => 
+    `${item.name} (${item.options}) x${item.quantity} - ${item.price.toFixed(2).replace(".", ",")} €`
+  ).join("%0D%0A");
+
   let total = cart.reduce((sum, i) => sum + i.price, 0) + 1;
   body += `%0D%0A---%0D%0ATotal avec frais : ${total.toFixed(2).replace(".", ",")} €`;
 
-  window.location.href = `mailto:ldcarpepro@gmail.com?subject=Commande&body=${body}`;
+  window.location.href = `mailto:?subject=Commande&body=${body}`;
 });
 
 // --- INIT ---
 renderProducts();
-
