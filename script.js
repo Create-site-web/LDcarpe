@@ -57,7 +57,7 @@ let products = [
     price: 1.00,
     image: "boutique plombs/Distance.jpg",
     colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
-    weights: ["40","50","60","70","80","90","100","110","120","130"],
+    weights: ["40","50","60","70","80","90","100","110","120","130","140"],
        quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
     aspects: ["Lisse", "Ganuleux"]
   },
@@ -87,7 +87,7 @@ let products = [
     price: 1.00,
     image: "boutique plombs/Grippe troué.jpg",
     colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
-    weights: ["40","50","60","90","100","110","120","130","150","170","210","230","300"],
+    weights: ["40","50","60","90","100","110","120","130","150","170","210","230"],
        quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
     aspects: ["Lisse", "Ganuleux"]
   },
@@ -167,7 +167,7 @@ let products = [
     price: 1.00,
     image: "boutique plombs/Goutte d eau.jpg",
     colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
-    weights: ["20","30","40","50","60","80","110","140"],
+    weights: ["20","30","40","50","60","80","90","100","110","120","140"],
        quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
     aspects: ["Lisse", "Ganuleux"]
   },
@@ -217,7 +217,7 @@ let products = [
     price: 1.00,
     image: "boutique plombs/Grappa inline.jpg",
     colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
-    weights: ["65","85","95"],
+    weights: ["65","85","95","165","185"],
        quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
     aspects: ["Lisse", "Ganuleux"]
   },
@@ -484,10 +484,8 @@ orderEmailBtn.addEventListener("click", () => {
   let total = cart.reduce((sum, i) => sum + i.price, 0) + 1;
   body += `%0D%0A---%0D%0ATotal avec frais : ${total.toFixed(2).replace(".", ",")} €`;
 
-  window.location.href = `mailto:ldcarpepro@gmail.com?subject=Commande&body=${body}`;
+  window.location.href = `mailto:?subject=Commande&body=${body}`;
 });
 
 // --- INIT ---
-
 renderProducts();
-
