@@ -127,7 +127,7 @@ let products = [
     price: 1.00,
     image: "boutique plombs/Backlead.jpg",
     colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
-    weights: ["70","50","70"],
+    weights: ["40","50","70"],
        quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
     aspects: ["Lisse", "Ganuleux"]
   },
@@ -263,8 +263,9 @@ function getPriceByWeight(weightStr, basePrice) {
   if (grams === 140) return 1.20;
   if (grams === 145) return 1.30;
   if (grams === 150) return 1.40;
+  if (grams === 165) return 1.45;
   if (grams === 170) return 1.50;
-  if (grams === 180) return 1.60;
+  if (grams === 180,185) return 1.60;
   if (grams === 200) return 1.70;
   if (grams === 210) return 1.80;
   if (grams === 230) return 1.90;
@@ -488,4 +489,5 @@ orderEmailBtn.addEventListener("click", () => {
 });
 
 // --- INIT ---
+
 renderProducts();
