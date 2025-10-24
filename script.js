@@ -259,7 +259,7 @@ function getPriceByWeight(weightStr, basePrice) {
   let grams = parseInt(weightStr.replace(/[^\d]/g, ""));
   if (isNaN(grams)) return basePrice;
 
-  if (grams <= 120) return 1.00;
+  if (grams <= 130) return 1.00;
   if (grams === 140) return 1.20;
   if (grams === 145) return 1.30;
   if (grams === 150) return 1.40;
@@ -491,3 +491,4 @@ orderEmailBtn.addEventListener("click", () => {
 // --- INIT ---
 
 renderProducts();
+
