@@ -265,7 +265,8 @@ function getPriceByWeight(weightStr, basePrice) {
   if (grams === 150) return 1.40;
   if (grams === 165) return 1.45;
   if (grams === 170) return 1.50;
-  if (grams === 180,185) return 1.60;
+  if (grams === 180) return 1.60;
+  if (grams === 185) return 1.60;
   if (grams === 200) return 1.70;
   if (grams === 210) return 1.80;
   if (grams === 230) return 1.90;
@@ -491,4 +492,5 @@ orderEmailBtn.addEventListener("click", () => {
 // --- INIT ---
 
 renderProducts();
+
 
