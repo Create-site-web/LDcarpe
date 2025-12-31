@@ -261,7 +261,7 @@ let products = [
     aspects: [],
     pricesByWeight: {
       "Petit (≈ 60–145g)": 1.50,
-      "Moyen (≈ 150–200g)": 2.00,
+      "Moyen (≈ 150–250g)": 2.00,
       "Gros (≈ 250-400g)": 2.50
     }
   },
@@ -517,4 +517,5 @@ orderEmailBtn.addEventListener("click", () => {
 });
 
 // --- INIT ---
+
 renderProducts();
