@@ -251,15 +251,32 @@ let products = [
        quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
     aspects: ["Lisse", "Ganuleux"]
   },
+  {
+    name: "Gallet",
+    description: "Accrochage par clip plomb, Attention les poids peuvent varier",
+    price: 0,
+    image: "boutique plombs/Gallet.jpg",
+    colors: [],
+    quantities: ["1","2","3","4","5","10","20","30","50"],
+    aspects: [],
+    pricesByWeight: {
+      "Petit (≈ 60–145g)": 1.50,
+      "Moyen (≈ 150–200g)": 2.00,
+      "Gros (≈ 250-400g)": 2.50
+    }
+  },
+
+  /* ⚠️ TOUS LES AUTRES PRODUITS RESTENT ICI SANS AUCUNE MODIFICATION ⚠️ */
 ];
 
-// --- CALCUL DU PRIX SELON POIDS ---
+// --- CALCUL DU PRIX SELON POIDS (PRODUITS CLASSIQUES) ---
 function getPriceByWeight(weightStr, basePrice) {
   if (!weightStr) return basePrice;
   let grams = parseInt(weightStr.replace(/[^\d]/g, ""));
   if (isNaN(grams)) return basePrice;
 
   if (grams <= 120) return 1.00;
+  if (grams === 135) return 1.10;
   if (grams === 140) return 1.20;
   if (grams === 145) return 1.30;
   if (grams === 150) return 1.40;
@@ -294,45 +311,68 @@ function renderProducts() {
     desc.textContent = p.description;
 
     const priceEl = document.createElement("p");
-    priceEl.textContent = `Prix : ${p.price.toFixed(2).replace(".", ",")} €`;
+    priceEl.textContent = `Prix : ${(p.price || 0).toFixed(2).replace(".", ",")} €`;
 
     const selects = [];
 
-    // --- Options Couleur ---
-    if (p.colors.length) {
+    // --- COULEUR ---
+    if (p.colors?.length) {
       const wrapper = document.createElement("div");
       wrapper.className = "product-option";
-
       const label = document.createElement("label");
       label.textContent = "Couleur :";
-      wrapper.appendChild(label);
-
       const sel = document.createElement("select");
       p.colors.forEach(c => {
         const opt = document.createElement("option");
         opt.textContent = c;
         sel.appendChild(opt);
       });
+      wrapper.appendChild(label);
       wrapper.appendChild(sel);
       selects.push({ type: "Couleur", sel });
       card.appendChild(wrapper);
     }
 
-    // --- Options Poids ---
-    if (p.weights.length) {
+    // --- GALLET : PRIX FIXE PAR TAILLE ---
+    if (p.pricesByWeight) {
       const wrapper = document.createElement("div");
       wrapper.className = "product-option";
+      const label = document.createElement("label");
+      label.textContent = "Taille :";
+      const sel = document.createElement("select");
 
+      Object.entries(p.pricesByWeight).forEach(([txt, price]) => {
+        const opt = document.createElement("option");
+        opt.value = price;
+        opt.textContent = `${txt} – ${price.toFixed(2).replace(".", ",")} €`;
+        sel.appendChild(opt);
+      });
+
+      wrapper.appendChild(label);
+      wrapper.appendChild(sel);
+      selects.push({ type: "Poids", sel });
+      card.appendChild(wrapper);
+
+      priceEl.textContent = `Prix : ${parseFloat(sel.value).toFixed(2).replace(".", ",")} €`;
+
+      sel.addEventListener("change", () => {
+        priceEl.textContent = `Prix : ${parseFloat(sel.value).toFixed(2).replace(".", ",")} €`;
+      });
+    }
+
+    // --- POIDS CLASSIQUE ---
+    if (!p.pricesByWeight && p.weights?.length) {
+      const wrapper = document.createElement("div");
+      wrapper.className = "product-option";
       const label = document.createElement("label");
       label.textContent = "Poids :";
-      wrapper.appendChild(label);
-
       const sel = document.createElement("select");
       p.weights.forEach(w => {
         const opt = document.createElement("option");
         opt.textContent = w;
         sel.appendChild(opt);
       });
+      wrapper.appendChild(label);
       wrapper.appendChild(sel);
       selects.push({ type: "Poids", sel });
       card.appendChild(wrapper);
@@ -343,58 +383,57 @@ function renderProducts() {
       });
     }
 
-    // --- Options Quantité ---
-    if (p.quantities.length) {
+    // --- QUANTITÉ ---
+    if (p.quantities?.length) {
       const wrapper = document.createElement("div");
       wrapper.className = "product-option";
-
       const label = document.createElement("label");
       label.textContent = "Nombre :";
-      wrapper.appendChild(label);
-
       const sel = document.createElement("select");
       p.quantities.forEach(q => {
         const opt = document.createElement("option");
         opt.textContent = q;
         sel.appendChild(opt);
       });
+      wrapper.appendChild(label);
       wrapper.appendChild(sel);
       selects.push({ type: "Nombre", sel });
       card.appendChild(wrapper);
     }
 
-    // --- Options Aspect ---
-    if (p.aspects.length) {
+    // --- ASPECT ---
+    if (p.aspects?.length) {
       const wrapper = document.createElement("div");
       wrapper.className = "product-option";
-
       const label = document.createElement("label");
       label.textContent = "Aspect :";
-      wrapper.appendChild(label);
-
       const sel = document.createElement("select");
       p.aspects.forEach(a => {
         const opt = document.createElement("option");
         opt.textContent = a;
         sel.appendChild(opt);
       });
+      wrapper.appendChild(label);
       wrapper.appendChild(sel);
       selects.push({ type: "Aspect", sel });
       card.appendChild(wrapper);
     }
 
-    // --- Bouton Ajouter au Panier ---
+    // --- AJOUT PANIER ---
     const btn = document.createElement("button");
     btn.textContent = "Ajouter au panier";
     btn.addEventListener("click", () => {
       let selectedWeight = selects.find(s => s.type === "Poids")?.sel.value || "";
-      let finalPrice = getPriceByWeight(selectedWeight, parseFloat(p.price));
+      let unitPrice = p.pricesByWeight
+        ? parseFloat(selectedWeight)
+        : getPriceByWeight(selectedWeight, parseFloat(p.price));
 
-      let selectedQuantity = parseInt(selects.find(s => s.type === "Nombre")?.sel.value || "1");
-      let totalPrice = finalPrice * selectedQuantity;
+      let quantity = parseInt(selects.find(s => s.type === "Nombre")?.sel.value || "1");
+      let totalPrice = unitPrice * quantity;
 
-      const chosen = selects.map(s => `${s.type}: ${s.sel.value}`).join(", ");
-      addToCart({ name: p.name, price: totalPrice, options: chosen, quantity: selectedQuantity });
+      let options = selects.map(s => `${s.type}: ${s.sel.value}`).join(", ");
+
+      addToCart({ name: p.name, price: totalPrice, options, quantity });
     });
 
     card.appendChild(img);
@@ -402,12 +441,11 @@ function renderProducts() {
     card.appendChild(desc);
     card.appendChild(priceEl);
     card.appendChild(btn);
-
     productsContainer.appendChild(card);
   });
 }
 
-// --- GESTION DU PANIER ---
+// --- PANIER ---
 function addToCart(item) {
   cart.push(item);
   updateCart();
@@ -431,7 +469,6 @@ function updateCart() {
     const li = document.createElement("li");
     li.textContent = `${item.name} (${item.options}) x${item.quantity} - ${item.price.toFixed(2).replace(".", ",")} €`;
 
-    // bouton suppression
     const removeBtn = document.createElement("button");
     removeBtn.textContent = "❌";
     removeBtn.style.marginLeft = "10px";
@@ -439,58 +476,45 @@ function updateCart() {
 
     li.appendChild(removeBtn);
     cartItems.appendChild(li);
-
     total += item.price;
   });
 
-  total += cart.length > 0 ? 1 : 0; // frais fixe 1€
-  cartTotal.textContent = cart.length > 0
+  total += cart.length > 0 ? 1 : 0;
+  cartTotal.textContent = cart.length
     ? `Total (avec 1€ frais) : ${total.toFixed(2).replace(".", ",")} €`
     : "Votre panier est vide";
 
   cartCount.textContent = cart.length;
 }
 
-// --- OUVRIR / FERMER PANIER ---
+// --- PANIER UI ---
 cartIcon.addEventListener("click", () => {
   cartPanel.classList.toggle("hidden");
 });
 
-// --- BOUTON FERMER ---
 const closeBtn = document.createElement("button");
 closeBtn.textContent = "❌ Fermer";
-closeBtn.className = "close-cart";
-closeBtn.addEventListener("click", () => {
-  cartPanel.classList.add("hidden");
-});
+closeBtn.addEventListener("click", () => cartPanel.classList.add("hidden"));
 cartPanel.prepend(closeBtn);
 
-// --- BOUTON VIDER LE PANIER ---
 const clearBtn = document.createElement("button");
 clearBtn.textContent = "🗑️ Vider le panier";
-clearBtn.className = "clear-cart";
 clearBtn.addEventListener("click", clearCart);
 cartPanel.appendChild(clearBtn);
 
-// --- COMMANDER PAR EMAIL ---
+// --- COMMANDE EMAIL ---
 orderEmailBtn.addEventListener("click", () => {
-  if (cart.length === 0) {
-    alert("Votre panier est vide !");
-    return;
-  }
+  if (!cart.length) return alert("Votre panier est vide");
 
-  let body = cart.map(item => 
-    `${item.name} (${item.options}) x${item.quantity} - ${item.price.toFixed(2).replace(".", ",")} €`
+  let body = cart.map(i =>
+    `${i.name} (${i.options}) x${i.quantity} - ${i.price.toFixed(2).replace(".", ",")} €`
   ).join("%0D%0A");
 
-  let total = cart.reduce((sum, i) => sum + i.price, 0) + 1;
+  let total = cart.reduce((s, i) => s + i.price, 0) + 1;
   body += `%0D%0A---%0D%0ATotal avec frais : ${total.toFixed(2).replace(".", ",")} €`;
 
   window.location.href = `mailto:ldcarpepro@gmail.com?subject=Commande&body=${body}`;
 });
 
 // --- INIT ---
-
 renderProducts();
-
-
