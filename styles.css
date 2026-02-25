@@ -232,6 +232,10 @@ footer {
   z-index: 1000; /* toujours au-dessus */
 }
 
+span {
+  color: red;
+}
+
 /* Responsive */
 @media (max-width: 600px) {
   #cartPanel {
