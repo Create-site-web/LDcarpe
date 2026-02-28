@@ -157,7 +157,7 @@ let products = [
     price: 1.00,
     image: "boutique plombs/Poire plat.jpg",
     colors: ["Vert camo", "Sable foncé", "Sable claire", "Sable vert", "Noir", "Noir bleuté","Noir moucheté", "Pierre", "Vert herbié", "Marron"],
-    weights: ["30","50","60","80"],
+    weights: ["30","50","80"],
        quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
     aspects: ["Lisse", "Ganuleux"]
   },
@@ -519,4 +519,5 @@ orderEmailBtn.addEventListener("click", () => {
 // --- INIT ---
 
 renderProducts();
+
 
