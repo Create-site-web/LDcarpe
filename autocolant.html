@@ -4,82 +4,217 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="ico/icon.jpg" type="image/x-icon">
-  <title>LDcarp - Accueil</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="quisuisje.css">
-</head>
-<body>
-    <nav>
-      <ul>
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="boutique.html">Boutique</a></li>
-          <li><a href="tableau.html">Couleurs</a></li>
-          <li><a href="vêtement.html">Vêtements</a></li>
-          <li><a href="autocolant.html">Vente autocollant</a></li>
-          <li><a href="album.html">Album photo</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="FAQ.html">FAQ</a></li>
-      </ul>
-    </nav>
+  <title>LDcarp - Autocollants</title>
 
-  
-          <h2>AUTOCOLLANTS </h2>
-          <p>
-            🚨 ILS SONT ARRIVÉS CHEZ LD CARPE ! 🚨
-Les autocollants officiels sonts maintenant disponible en stock ⏳
-⏳ SUR COMMANDE ⏳
-<section id="about" class="about-section">
-      <div class="about-container">
-        <div class="about-text">
-🏷️ AUTOCOLLANTS 🏷️
-Taille disponible : 10 x 10
-💰 €
-        </p>
-          <h2><span></span></h2>
-        </div>
-        <div class="about-images">
-          <img src="" alt="" class="about-img">
-          <img src="">
-          <img src="">
-        </div>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    nav {
+      background: #111;
+      padding: 15px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    h2 {
+      margin-top: 30px;
+    }
+
+    .products {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin: 40px 0;
+    }
+
+    .product {
+      border: 1px solid #ddd;
+      padding: 20px;
+      width: 250px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .product img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      border: none;
+      background: black;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background: #333;
+    }
+
+    #cart {
+      margin-top: 20px;
+    }
+
+    footer {
+      margin-top: 50px;
+      padding: 20px;
+      background: #111;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <ul>
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="boutique.html">Boutique</a></li>
+    <li><a href="tableau.html">Couleurs</a></li>
+    <li><a href="vêtement.html">Vêtements</a></li>
+    <li><a href="autocolant.html">Vente autocollant</a></li>
+    <li><a href="album.html">Album photo</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="FAQ.html">FAQ</a></li>
+  </ul>
+</nav>
+
+<h2>🚨 AUTOCOLLANTS OFFICIELS LD CARP 🚨</h2>
+<p>Disponibles sur commande</p>
+
+<div class="products">
+
+  <div class="product">
+    <img src="collant/10 x 10.png" alt="Autocollant 10x10">
+    <h3>10 x 10</h3>
+    <p>Prix : 1 €</p>
+    <button class="add-to-cart" data-size="10x10" data-price="1">Ajouter au panier</button>
+  </div>
+
+  <div class="product">
+    <img src="collant/20 x 20.png" alt="Autocollant 20x20">
+    <h3>20 x 20</h3>
+    <p>Prix : 2 €</p>
+    <button class="add-to-cart" data-size="20x20" data-price="2">Ajouter au panier</button>
+  </div>
+
+  <div class="product">
+    <img src="collant/30 x 30.png" alt="Autocollant 30x30">
+    <h3>30 x 30</h3>
+    <p>Prix : 3 €</p>
+    <button class="add-to-cart" data-size="30x30" data-price="3">Ajouter au panier</button>
+  </div>
+
+</div>
+
+<hr>
+
+<h2>🛒 Mon panier</h2>
+<div id="cart"></div>
+<p><strong>Total : <span id="total">0</span> €</strong></p>
+
+<button id="cmdcollant">Commander</button>
+
+<footer>
+  <p>&copy; 2026 LDcarp. Tous droits réservés.</p>
+</footer>
+
+<script>
+let panier = [];
+
+// Ajouter au panier
+document.querySelectorAll(".add-to-cart").forEach(button => {
+  button.addEventListener("click", function () {
+    const size = this.dataset.size;
+    const price = parseFloat(this.dataset.price);
+
+    const produit = panier.find(item => item.size === size);
+
+    if (produit) {
+      produit.quantity++;
+    } else {
+      panier.push({ size, price, quantity: 1 });
+    }
+
+    afficherPanier();
+  });
+});
+
+// Affichage panier
+function afficherPanier() {
+  const cartDiv = document.getElementById("cart");
+  const totalSpan = document.getElementById("total");
+
+  cartDiv.innerHTML = "";
+  let total = 0;
+
+  panier.forEach((item, index) => {
+    total += item.price * item.quantity;
+
+    cartDiv.innerHTML += `
+      <div>
+        Autocollant ${item.size} x${item.quantity}
+        (${item.price * item.quantity} €)
+        <button onclick="supprimer(${index})">❌</button>
       </div>
-    </section>
-⸻
-<section id="about" class="about-section">
-      <div class="about-container">
-        <div class="about-text">
-Taille disponible : 20 x 20
-💰 €
-        </p>
-          <h2><span></span></h2>
-        </div>
-        <div class="about-images">
-          <img src="" alt="" class="about-img">
-          <img src="">
-          <img src="">
-        </div>
-      </div>
-    </section>
-_____ 
-<section id="about" class="about-section">
-      <div class="about-container">
-        <div class="about-text">
-Taille disponible : 30 x 30
-💰 €
-        </p>
-          <h2><span></span></h2>
-        </div>
-        <div class="about-images">
-          <img src="" alt="" class="about-img">
-          <img src="">
-          <img src="">
-        </div>
-      </div>
-    </section>
-          
-  
-  <footer>
-        <p>&copy; 2026 LDcarp. Tous droits réservés.</p>
-    </footer>
+    `;
+  });
+
+  totalSpan.textContent = total.toFixed(2);
+}
+
+// Supprimer produit
+function supprimer(index) {
+  panier.splice(index, 1);
+  afficherPanier();
+}
+
+// Commander
+document.getElementById("cmdcollant").addEventListener("click", function () {
+
+  if (panier.length === 0) {
+    alert("Votre panier est vide !");
+    return;
+  }
+
+  let message = "Bonjour, je souhaite commander :\n\n";
+  let total = 0;
+
+  panier.forEach(item => {
+    message += `- ${item.quantity} autocollant(s) ${item.size} : ${item.price * item.quantity}€\n`;
+    total += item.price * item.quantity;
+  });
+
+  message += `\nTotal : ${total}€`;
+
+  let email = "ldcarpepro@gmail.com"; // 🔴 MET TON EMAIL ICI
+
+  window.location.href =
+    `mailto:${email}?subject=Commande Autocollants LDcarp&body=${encodeURIComponent(message)}`;
+});
+</script>
+
 </body>
 </html>
