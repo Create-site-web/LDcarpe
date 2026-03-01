@@ -252,6 +252,36 @@ let products = [
     aspects: ["Lisse", "Ganuleux"]
   },
   {
+    name: "Autocollant 10 x 10",
+    description: "Autocollant de 10cm sur 10cm",
+    price: 1.00,
+    image: "collant/10 x 10.png",
+    colors:[],
+    weights: [],
+    quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
+    aspects: []
+  },
+  {
+    name: "Autocollant 20 x 20",
+    description: "Autocollant de 20cm sur 20cm",
+    price: 2.00,
+    image: "collant/20 x 20.png",
+        colors:[],
+    weights: [],
+    quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
+    aspects: []
+  },
+  {
+    name: "Autocollant 30 x 30",
+    description: "Autcollant de taille 30cm  sur 30cm",
+    price: 1.00,
+    image: "collant/30 x 30.png",
+        colors:[],
+    weights: [],
+    quantities: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","20","25","30","35","40","45","50","55","60","65","70","75","80","85","90","95","100","110","120","130","140","150","160","170","180","190","200"],
+    aspects: []
+  },
+  {
     name: "Gallet",
     description: "Accrochage par clip plomb, Attention les poids peuvent varier",
     price: 0,
@@ -263,7 +293,7 @@ let products = [
       "Petit (≈ 60–145g)": 1.50,
       "Moyen (≈ 150–250g)": 2.00,
       "Gros (≈ 250-400g)": 2.50
-    }
+  },
   },
 
   /* ⚠️ TOUS LES AUTRES PRODUITS RESTENT ICI SANS AUCUNE MODIFICATION ⚠️ */
