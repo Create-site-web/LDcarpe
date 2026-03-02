@@ -263,6 +263,7 @@ let products = [
       "Petit (≈ 60–145g)": 1.50,
       "Moyen (≈ 150–250g)": 2.00,
       "Gros (≈ 250-400g)": 2.50
+  }
   },
   {
     name: "Autocollant 10 x 10",
@@ -548,8 +549,5 @@ orderEmailBtn.addEventListener("click", () => {
 // --- INIT ---
 
 renderProducts();
-
-
-
 
 
