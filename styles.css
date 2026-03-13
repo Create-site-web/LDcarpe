@@ -246,6 +246,11 @@ p {
   text-align: center;
 }
 
+h3 {
+  justify-content: center;
+  text-align: center;
+}
+
 /* Responsive */
 @media (max-width: 600px) {
   #cartPanel {
@@ -256,3 +261,4 @@ p {
     font-size: 14px;
   }
 }
+
