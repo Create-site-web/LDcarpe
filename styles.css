@@ -108,7 +108,8 @@ button.danger:hover {
 }
 
 a {
-  text-align:center;
+  justify-content: center;
+  text-align: center;
 
 }
 
