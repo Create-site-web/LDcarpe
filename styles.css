@@ -107,6 +107,11 @@ button.danger:hover {
   background: darkred;
 }
 
+a {
+  text-align:center;
+
+}
+
 /* PANIER */
 #cartPanel {
   position: fixed;
